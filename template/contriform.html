@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATRIX - IIIT Bhopal</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="static/style.css" rel="stylesheet">
+    <script src="static/script.js" rel="script"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        violet: {
+                            950: '#0B061A',
+                            900: '#140C2B',
+                            800: '#231446',
+                            700: '#381E6E',
+                            600: '#5C31B2',
+                            500: '#7C3AED',
+                            400: '#A78BFA',
+                            300: '#C4B5FD',
+                            200: '#DDD6FE',
+                            100: '#EDE9FE',
+                            50: '#F5F3FF',
+                        },
+                        neon: {
+                            purple: '#A855F7',
+                            cyan: '#06B6D4',
+                            emerald: '#10B981',
+                            amber: '#F59E0B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'violet-radial': 'radial-gradient(circle at 50% 0%, #381E6E 0%, #0B061A 75%)',
+                        'card-glow': 'radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.15) 0%, rgba(20, 12, 43, 0.4) 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    
+    </head>
+ <body class="min-h-screen flex-col justify-between bg-violet-950 text-slate-100 antialiased selection:bg-violet-500 selection:text-white">
+    <br>
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="px-3 py-1 rounded-full bg-violet-800/50 border border-violet-500/30 text-violet-200 text-xs font-semibold">Contribute</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Student Contribution Form</h2>
+                <p class="text-violet-300 text-sm sm:text-base">Ready to learn, build, research, innovate, and contribute? Submit your application below to join our ecosystem.</p>
+            </div>
+
+            <!-- Recruitment Form Card -->
+            <div class="max-w-3xl mx-auto glass-panel rounded-3xl p-6 sm:p-10 border border-violet-600/40 shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-violet-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                <form action="user_contribution" method="POST" id="recruitment-form" class="space-y-6">
+                    {%csrf_token%}
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Full Name -->
+                        <div class="space-y-2">
+                            <label class="block text-xs font-semibold uppercase text-violet-300 tracking-wider">Full Name *</label>
+                            <input type="text" name = "contri_name" required placeholder="e.g. Aditya Rana" class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                        </div>
+
+                        <!-- Roll Number -->
+                        <div class="space-y-2">
+                            <label class="block text-xs font-semibold uppercase text-violet-300 tracking-wider">Scholar No. *</label>
+                            <input type="text" name = "contri_roll" required placeholder="e.g. 25U023000" class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                        </div>
+
+                    </div>
+
+                    <!-- Statement of Purpose -->
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold uppercase text-violet-300 tracking-wider">Skills</label>
+                        <input type="text" name = "contri_skill" required placeholder="python,pytorch etc." class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <input type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 font-bold text-white shadow-lg shadow-violet-600/30 transition-all text-sm tracking-wider uppercase">
+                </form>
+            </div>
+    </body>
+</html>
