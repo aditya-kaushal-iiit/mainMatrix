@@ -555,20 +555,20 @@
         </section>
 
         <!-- ==================== TAB 2: GAMIFIED ROADMAP ==================== -->
-        <section id="tab-roadmap" class="tab-content hidden space-y-12  pointer-events-none">
+        <section id="tab-roadmap" class="tab-content hidden space-y-12">
             
             <!-- Header Banner -->
-            <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-violet-600/30 flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-violet-900/50 to-purple-900/30 blur">
+            <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-violet-600/30 flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-violet-900/50 to-purple-900/30">
                 <div class="space-y-2 text-center md:text-left">
                     <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-violet-800/60 text-violet-300 text-xs font-semibold">
                         <i class="fa-solid fa-gamepad"></i>
-                        <span>Gamified Learning Path</span>
+                        <span> Gamified Learning Path</span>
                     </div>
                     <h2 class="text-3xl font-extrabold text-white">Level-Wise Skill Quest</h2>
                     <p class="text-violet-300 text-sm max-w-xl">Complete topics sequentially to unlock next levels. Earn XP, gain badges, and access handpicked resources!</p>
                 </div>
                 
-                <div class="flex items-center space-x-4 bg-violet-950/80 p-4 rounded-2xl border border-violet-700/50">
+                <!-- <div class="flex items-center space-x-4 bg-violet-950/80 p-4 rounded-2xl border border-violet-700/50">
                     <div class="text-center px-3 border-r border-violet-800">
                         <span class="block text-xs text-violet-400 font-semibold uppercase">Progress</span>
                         <span id="roadmap-completion-percent" class="text-2xl font-black text-emerald-400">35%</span>
@@ -576,17 +576,16 @@
                     <div class="text-center px-3">
                         <span class="block text-xs text-violet-400 font-semibold uppercase">Unlocked</span>
                         <span id="unlocked-count" class="text-2xl font-black text-violet-200">6 / 18</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
-            <!--Path Map Render Area -->
-            <div class="relative py-10 px-4 max-w-2xl mx-auto space-y-16 blur">
+            <!-- Map Render Area -->
+            <div class="relative py-10 px-4 max-w-2xl mx-auto space-y-16">
                 
                 <!-- LEVEL 1 CONTAINER -->
                 <div class="space-y-8">
                     <div class="text-center bg-violet-900/70 border border-violet-700/50 rounded-2xl p-4 shadow-lg backdrop-blur">
-                        <span class="text-xs font-bold text-violet-300 uppercase tracking-widest block">LEVEL 1</span>
                         <h3 class="text-xl font-extrabold text-white">Python & Programming Foundations</h3>
                     </div>
 
@@ -594,46 +593,38 @@
                     <div class="flex flex-col items-center space-y-10 relative">
                         
                         <!-- Node 1: Completed -->
-                        <div  class="cursor-pointer group flex flex-col items-center">
-                            <div class="node-locked w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl transition-transform transform group-hover:scale-110 relative">
+                        <div onclick="openNodeModal(1)" class="cursor-pointer group flex flex-col items-center">
+                            <div class="node-active w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl transition-transform transform group-hover:scale-110 relative">
                                 <i class="fa-solid fa-terminal"></i>
-                                <span class="absolute -bottom-2 bg-emerald-950 text-emerald-300 border border-emerald-500 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-check mr-1"></i>Done</span>
+                                <!-- <span class="absolute -bottom-2 bg-emerald-950 text-emerald-300 border border-emerald-500 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-check mr-1"></i>Done</span> -->
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-200 group-hover:text-white">1. Print Statements</span>
+                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Fundamentals</span>
                         </div>
 
                         <!-- Node 2: Completed -->
-                        <div  class="cursor-pointer group flex flex-col items-center ml-16 sm:ml-24">
-                            <div class="node-locked w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl transition-transform transform group-hover:scale-110 relative">
+                        <div onclick="openNodeModal(2)" class="cursor-pointer group flex flex-col items-center ml-16 sm:ml-24">
+                            <div class="node-active w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl transition-transform transform group-hover:scale-110 relative">
                                 <i class="fa-solid fa-code font-bold"></i>
-                                <span class="absolute -bottom-2 bg-emerald-950 text-emerald-300 border border-emerald-500 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-check mr-1"></i>Done</span>
+                                <!-- <span class="absolute -bottom-2 bg-emerald-950 text-emerald-300 border border-emerald-500 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-check mr-1"></i>Done</span> -->
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-200 group-hover:text-white">2. Variables & Types</span>
+                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">NumPy</span>
                         </div>
 
                         <!-- Node 3: Active (In Progress) -->
-                        <div  class="cursor-pointer group flex flex-col items-center -ml-16 sm:-ml-24">
-                            <div class="node-locked w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative">
+                        <div onclick="openNodeModal(3)" class="cursor-pointer group flex flex-col items-center -ml-16 sm:-ml-24">
+                            <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative">
                                 <i class="fa-solid fa-code-branch"></i>
-                                <span class="absolute -bottom-2 bg-violet-950 text-violet-300 border border-violet-500 text-[10px] font-bold px-2.5 py-0.5 rounded-full animate-pulse">Current</span>
+                                <!-- <span class="absolute -bottom-2 bg-violet-950 text-violet-300 border border-violet-500 text-[10px] font-bold px-2.5 py-0.5 rounded-full animate-pulse">Current</span> -->
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-100 group-hover:text-white">3. Conditionals & Logic</span>
+                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Pandas</span>
                         </div>
 
                         <!-- Node 4: Unlocked -->
-                        <div  class="cursor-pointer group flex flex-col items-center ml-12 sm:ml-20">
-                            <div class="node-locked w-20 h-20 rounded-full bg-violet-800 border-2 border-violet-400 flex items-center justify-center text-violet-200 text-2xl transition-transform transform group-hover:scale-110 relative shadow-lg">
+                        <div onclick="openNodeModal(4)" class="cursor-pointer group flex flex-col items-center ml-12 sm:ml-20">
+                            <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative">
                                 <i class="fa-solid fa-rotate-right"></i>
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">4. Loops & Iterations</span>
-                        </div>
-
-                        <!-- Node 5: Locked -->
-                        <div  class="cursor-pointer group flex flex-col items-center -ml-12 sm:-ml-20 opacity-70">
-                            <div class="node-locked w-20 h-20 rounded-full flex items-center justify-center text-violet-400 text-2xl relative">
-                                <i class="fa-solid fa-lock"></i>
-                            </div>
-                            <span class="mt-3 text-sm font-medium text-violet-400">5. Lists & Dictionaries</span>
+                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Matplotlib</span>
                         </div>
                     </div>
                 </div>
@@ -641,51 +632,80 @@
                 <!-- LEVEL 2 CONTAINER -->
                 <div class="space-y-8 pt-6">
                     <div class="text-center bg-indigo-900/70 border border-indigo-700/50 rounded-2xl p-4 shadow-lg backdrop-blur">
-                        <span class="text-xs font-bold text-indigo-300 uppercase tracking-widest block">LEVEL 2</span>
-                        <h3 class="text-xl font-extrabold text-white">Data Science & Numerical Computing</h3>
+                        <h3 class="text-xl font-extrabold text-white">Maths for ML</h3>
                     </div>
 
                     <div class="flex flex-col items-center space-y-10">
-                        <div  class="cursor-pointer group flex flex-col items-center opacity-70">
-                            <div class="node-locked w-20 h-20 rounded-full flex items-center justify-center text-violet-400 text-2xl">
+                        <div onclick="openNodeModal(5)" class="cursor-pointer group flex flex-col items-center">
+                            <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
                                 <i class="fa-solid fa-calculator"></i>
                             </div>
-                            <span class="mt-3 text-sm font-medium text-violet-400">6. NumPy Arrays</span>
+                            <span  class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Linear Algebra</span>
                         </div>
 
-                        <div  class="cursor-pointer group flex flex-col items-center ml-16 opacity-70">
-                            <div class="node-locked w-20 h-20 rounded-full flex items-center justify-center text-violet-400 text-2xl">
+                        <div onclick="openNodeModal(6)" class="cursor-pointer group flex flex-col items-center ml-16 sm:ml-24">
+                            <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
                                 <i class="fa-solid fa-table"></i>
                             </div>
-                            <span class="mt-3 text-sm font-medium text-violet-400">7. Pandas DataFrames</span>
+                            <span  class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Probability & Statistics</span>
                         </div>
 
-                        <div  class="cursor-pointer group flex flex-col items-center -ml-16 opacity-70">
-                    <!-- <div onclick="openNodeModal(8)" class="cursor-pointer group flex flex-col items-center -ml-16 opacity-70"></div> -->
-                            <div class="node-locked w-20 h-20 rounded-full flex items-center justify-center text-violet-400 text-2xl">
+                        <div onclick="openNodeModal(7)" class="cursor-pointer group flex flex-col items-center -ml-16 sm:-ml-24">
+                            <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
                                 <i class="fa-solid fa-chart-line"></i>
                             </div>
-                            <span class="mt-3 text-sm font-medium text-violet-400">8. Matplotlib & Seaborn</span>
+                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Getting into ML</span>
+                        </div>
+
+                        <div onclick="openNodeModal(8)" class="cursor-pointer group flex flex-col items-center ml-12 sm:ml-20">
+                            <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Projects</span>
+                        </div>
+                    </div>
+                    <div class="text-center bg-indigo-900/70 border border-indigo-700/50 rounded-2xl p-4 shadow-lg backdrop-blur">
+                        <h3 class="text-xl font-extrabold text-white">Core ML Algorithms</h3>
+                    </div>
+
+                    <div class="flex flex-col items-center space-y-10">
+                        <div onclick="openNodeModal(9)" class="cursor-pointer group flex flex-col items-center">
+                            <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
+                                <i class="fa-solid fa-calculator"></i>
+                            </div>
+                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Regression</span>
+                        </div>
+
+                        <div onclick="openNodeModal(10)" class="cursor-pointer group flex flex-col items-center ml-16 sm:ml-24">
+                            <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
+                                <i class="fa-solid fa-table"></i>
+                            </div>
+                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Classification</span>
+                        </div>
+
+                        <div onclick="openNodeModal(11)" class="cursor-pointer group flex flex-col items-center -ml-16 sm:-ml-24">
+                            <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Ensemble Learning</span>
+                        </div>
+
+                        <div onclick="openNodeModal(12)" class="cursor-pointer group flex flex-col items-center ml-12 sm:ml-20">
+                            <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Unsupervised Learning</span>
+                        </div>
+                        <div onclick="openNodeModal(13)" class="cursor-pointer group flex flex-col items-center">
+                            <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Model Evaluation and Improvement</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- LEVEL 3 & 4 PREVIEW BADGE -->
-                <div class="text-center glass-panel p-6 rounded-2xl border border-violet-800 space-y-2">
-                    <i class="fa-solid fa-brain text-3xl text-violet-400"></i>
-                    <h4 class="font-bold text-white text-base">Levels 3 & 4 (Classical ML & Deep Learning)</h4>
-                    <p class="text-xs text-violet-300">Complete Level 1 & 2 to unlock Neural Networks, Transformers & PyTorch Modules!</p>
-                </div>
             </div>
-
-                    <div class="absolute inset-0 flex items-center justify-center z-10">
-                    <span class="text-3xl font-bold text-white bg-black/60 px-6 py-3 rounded-xl backdrop-blur-sm">
-                    Coming Soon
-                    </span>
-                    </div>
-            
         </section>
-
         <!-- ==================== TAB 3: PROJECTS SECTION ==================== -->
         <section id="tab-projects" class="tab-content hidden space-y-8">
             
