@@ -187,15 +187,15 @@ let currentRequiredSkills = [];
 function switchTab(tabId) {
     document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
     document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('bg-violet-600', 'text-white', 'shadow-md');
-        btn.classList.add('text-violet-300');
+        btn.classList.remove('bg-[#E8A52A]', 'text-white', 'shadow-md');
+        btn.classList.add('text-[#F2E192]');
     });
 
     document.getElementById(`tab-${tabId}`).classList.remove('hidden');
     const activeNav = document.getElementById(`nav-${tabId}`);
     if (activeNav) {
-        activeNav.classList.add('bg-violet-600', 'text-white', 'shadow-md');
-        activeNav.classList.remove('text-violet-300');
+        activeNav.classList.add('bg-[#E8A52A]', 'text-white', 'shadow-md');
+        activeNav.classList.remove('text-[#F2E192]');
     }
 
     document.getElementById('mobile-menu').classList.add('hidden');
@@ -212,26 +212,27 @@ function filterProjects(status) {
     const completedBtn = document.getElementById('proj-filter-completed');
     const activeCards = document.querySelectorAll('.active-proj');
     const completedCards = document.querySelectorAll('.completed-proj');
-
     if (status === 'active') {
-        activeBtn.classList.add('bg-violet-600', 'text-white');
-        activeBtn.classList.remove('text-violet-300');
-        completedBtn.classList.remove('bg-violet-600', 'text-white');
-        completedBtn.classList.add('text-violet-300');
+        activeBtn.classList.add('bg-[#E36F24]', 'text-white');
+        activeBtn.classList.remove('text-[#F2E192]');
+
+        completedBtn.classList.remove('bg-[#E36F24]', 'text-white');
+        completedBtn.classList.add('text-[#F2E192]');
 
         activeCards.forEach(c => c.classList.remove('hidden'));
         completedCards.forEach(c => c.classList.add('hidden'));
+
     } else {
-        completedBtn.classList.add('bg-violet-600', 'text-white');
-        completedBtn.classList.remove('text-violet-300');
-        activeBtn.classList.remove('bg-violet-600', 'text-white');
-        activeBtn.classList.add('text-violet-300');
+        completedBtn.classList.add('bg-[#E36F24]', 'text-white');
+        completedBtn.classList.remove('text-[#F2E192]');
+
+        activeBtn.classList.remove('bg-[#E36F24]', 'text-white');
+        activeBtn.classList.add('text-[#F2E192]');
 
         completedCards.forEach(c => c.classList.remove('hidden'));
         activeCards.forEach(c => c.classList.add('hidden'));
     }
 }
-
 // Open Node Modal
 function openNodeModal(nodeId) {
     const data = roadmapData[nodeId];
@@ -283,7 +284,7 @@ function openSkillChecker(projectName, skills) {
     const container = document.getElementById('skill-checkbox-container');
     container.innerHTML = skills.map((skill) => `
         <label class="flex items-center space-x-3 p-3 rounded-xl bg-violet-900/40 border border-violet-800 cursor-pointer hover:bg-violet-800/40">
-            <input type="checkbox" value="${skill}" onchange="updateSkillMatchScore()" class="skill-chk w-4 h-4 text-violet-600 rounded focus:ring-violet-500 bg-violet-950 border-violet-700">
+            <input type="checkbox" value="${skill}" onchange="updateSkillMatchScore()" class="skill-chk w-4 h-4 text-[#E8A52A] rounded focus:ring-violet-500 bg-violet-950 border-violet-700">
             <span class="text-xs font-semibold text-white">${skill}</span>
         </label>
     `).join('');
