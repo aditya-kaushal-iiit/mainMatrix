@@ -245,8 +245,8 @@ function openNodeModal(nodeId) {
 
     const subtopicsContainer = document.getElementById('modal-subtopics');
     subtopicsContainer.innerHTML = data.subtopics.map(sub => `
-        <div class="flex items-center space-x-2 text-violet-200">
-            <i class="fa-solid fa-circle-check text-violet-400 text-xs"></i>
+        <div class="flex items-center space-x-2 text-white-200">
+            <i class="fa-solid fa-circle-check text-red-400 text-xs"></i>
             <span>${sub}</span>
         </div>
     `).join('');
