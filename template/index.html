@@ -25,25 +25,25 @@
             theme: {
                 extend: {
                     colors: {
-                        violet: {
-                            950: '#0B061A',
-                            900: '#140C2B',
-                            800: '#231446',
-                            700: '#381E6E',
-                            600: '#5C31B2',
-                            500: '#7C3AED',
-                            400: '#A78BFA',
-                            300: '#C4B5FD',
-                            200: '#DDD6FE',
-                            100: '#EDE9FE',
-                            50: '#F5F3FF',
-                        },
-                        neon: {
-                            purple: '#A855F7',
-                            cyan: '#06B6D4',
-                            emerald: '#10B981',
-                            amber: '#F59E0B'
-                        }
+                           violet: {
+                                starfire: {
+                                    950: '#0A0703',   // Almost black - background
+                                    900: '#1A1008',   // Deep brown-black
+                                    800: '#7A1F12',   // Deep red
+                                    700: '#B83A16',   // Burnt red-orange
+                                    600: '#E36F24',   // Orange
+                                    500: '#E8A52A',   // Golden orange
+                                    400: '#F3D92A',   // Bright gold/yellow
+                                    300: '#F2E192',   // Soft champagne gold
+                                },
+
+                                neon: {
+                                    red: '#F2553B',
+                                    orange: '#E89034',
+                                    yellow: '#F3D92A',
+                                    gold: '#E4AE25'
+                                }
+                                }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -60,80 +60,80 @@
     
     
 </head>
-<body class="min-h-screen flex flex-col justify-between bg-violet-950 text-slate-100 antialiased selection:bg-violet-500 selection:text-white">
+<body class="min-h-screen flex flex-col justify-between bg-[#190703] text-slate-100 antialiased selection:bg-[#E8A52A] selection:text-white">
 
     <canvas id="confetti-canvas"></canvas>
 
-    <header class="sticky top-0 z-40 glass-panel border-b border-violet-800/50 bg-violet-950/80 backdrop-blur-md">
+    <header class="sticky top-0 z-40 glass-panel bg-[#120400]/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
             <!-- Logo & Title -->
             <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr  flex items-center justify-center shadow-lg shadow-orange-600/30">
-                    <img src="{% static 'Gemini_Generated_Image_gkjpc7gkjpc7gkjp-removebg-preview.png' %}" alt="MATRIX Logo" class="w-15 h-15 object-contain">
+                <div class="w-40 h-12  flex items-center justify-center ">
+                    <div class="logo">
+                      <img id = "logoImg" src="{% static 'MATRIX_logo.png'%}">
+                    </div>
                 </div>
-                <div>
-                    <span class="font-heading font-black text-xl tracking-wide bg-gradient-to-r from-white via-violet-200 to-violet-400 bg-clip-text text-transparent uppercase">MATRIX</span>
-                    <span class="block text-[10px] font-bold text-violet-400 tracking-widest uppercase">IIIT Bhopal</span>
-                </div>
+                
             </div>
 
+
             <!-- Desktop Navigation Tabs -->
-            <nav class="hidden md:flex items-center space-x-1 bg-violet-900/40 p-1.5 rounded-2xl border border-violet-700/30">
-                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-white bg-violet-600 shadow-md">
+            <nav class="hidden md:flex items-center space-x-1 bg-[#100B07]/40 p-1.5 rounded-2xl ">
+               <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-[#F2E192] bg-[#100B07] hover:bg-[#4A160E] hover:text-[#E8A52A] shadow-md">
                     <i class="fa-solid fa-house mr-2"></i>Home
                 </button>
-                <button onclick="switchTab('roadmap')" id="nav-roadmap" class="nav-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-violet-300 hover:text-white hover:bg-violet-800/50">
+                <button onclick="switchTab('roadmap')" id="nav-roadmap" class="nav-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-[#F2E192] hover:text-white hover:bg-[#4A160E]/50">
                     <i class="fa-solid fa-route mr-2"></i>Roadmap
                 </button>
-                <button onclick="switchTab('projects')" id="nav-projects" class="nav-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-violet-300 hover:text-white hover:bg-violet-800/50">
+                <button onclick="switchTab('projects')" id="nav-projects" class="nav-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-[#F2E192] hover:text-white hover:bg-[#4A160E]/50">
                     <i class="fa-solid fa-diagram-project mr-2"></i>Projects
                 </button>
-                <button onclick="switchTab('blogs')" id="nav-blogs" class="nav-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-violet-300 hover:text-white hover:bg-violet-800/50">
+                <button onclick="switchTab('blogs')" id="nav-blogs" class="nav-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-[#F2E192] hover:text-white hover:bg-[#4A160E]/50">
                     <i class="fa-solid fa-blog mr-2"></i>Blogs
                 </button> 
-                <button onclick="switchTab('recruitment')" id="nav-recruitment" class="nav-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-violet-300 hover:text-white hover:bg-violet-800/50">
+                <button onclick="switchTab('recruitment')" id="nav-recruitment" class="nav-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-[#F2E192] hover:text-white hover:bg-[#4A160E]/50">
                     <i class="fa-solid fa-user-plus mr-2"></i>Join Us
                 </button>
             </nav>
 
             <!-- Gamification Header Bar -->
             <div class="flex items-center space-x-3 sm:space-x-4">
-                <!-- <div class="flex items-center space-x-1.5 bg-violet-900/60 px-3 py-1.5 rounded-full border border-violet-700/50 text-xs sm:text-sm font-bold text-amber-400" title="Streak Days">
+                <!-- <div class="flex items-center space-x-1.5 bg-[#100B07]/60 px-3 py-1.5 rounded-full border border-[#7A1F12]/50 text-xs sm:text-sm font-bold text-amber-400" title="Streak Days">
                     <i class="fa-solid fa-fire text-amber-400 animate-pulse"></i>
                     <span id="stat-streak">5</span>
                 </div>
-                <div class="flex items-center space-x-1.5 bg-violet-900/60 px-3 py-1.5 rounded-full border border-violet-700/50 text-xs sm:text-sm font-bold text-cyan-400" title="XP Earned">
+                <div class="flex items-center space-x-1.5 bg-[#100B07]/60 px-3 py-1.5 rounded-full border border-[#7A1F12]/50 text-xs sm:text-sm font-bold text-cyan-400" title="XP Earned">
                     <i class="fa-solid fa-bolt text-cyan-400"></i>
                     <span id="stat-xp">350 XP</span>
                 </div>
-                <div class="flex items-center space-x-1.5 bg-violet-900/60 px-3 py-1.5 rounded-full border border-violet-700/50 text-xs sm:text-sm font-bold text-purple-300" title="Gems">
+                <div class="flex items-center space-x-1.5 bg-[#100B07]/60 px-3 py-1.5 rounded-full border border-[#7A1F12]/50 text-xs sm:text-sm font-bold text-purple-300" title="Gems">
                     <i class="fa-solid fa-gem text-purple-400"></i>
                     <span id="stat-gems">120</span>
                 </div> -->
 
                 <!-- Mobile menu toggle -->
-                <button onclick="toggleMobileMenu()" class="md:hidden text-violet-300 hover:text-white p-2">
+                <button onclick="toggleMobileMenu()" class="md:hidden text-[#F2E192] hover:text-white p-2">
                     <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Navigation Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-violet-800 px-4 py-4 space-y-2">
-            <button onclick="switchTab('home')" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl font-medium text-white bg-violet-700 flex items-center justify-between">
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-[#7A1F12] px-4 py-4 space-y-2">
+            <button onclick="switchTab('home')" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl font-medium text-white bg-[#7A1F12] flex items-center justify-between">
                 <span><i class="fa-solid fa-house mr-3"></i>Home</span>
                 <i class="fa-solid fa-chevron-right text-xs"></i>
             </button>
-            <button onclick="switchTab('roadmap')" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl font-medium text-violet-300 hover:bg-violet-800/50 flex items-center justify-between">
+            <button onclick="switchTab('roadmap')" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl font-medium text-[#F2E192] hover:bg-[#4A160E]/50 flex items-center justify-between">
                 <span><i class="fa-solid fa-route mr-3"></i>Roadmap</span>
                 <i class="fa-solid fa-chevron-right text-xs"></i>
             </button>
-            <button onclick="switchTab('projects')" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl font-medium text-violet-300 hover:bg-violet-800/50 flex items-center justify-between">
+            <button onclick="switchTab('projects')" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl font-medium text-[#F2E192] hover:bg-[#4A160E]/50 flex items-center justify-between">
                 <span><i class="fa-solid fa-diagram-project mr-3"></i>Projects</span>
                 <i class="fa-solid fa-chevron-right text-xs"></i>
             </button>
-            <button onclick="switchTab('recruitment')" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl font-medium text-violet-300 hover:bg-violet-800/50 flex items-center justify-between">
+            <button onclick="switchTab('recruitment')" class="mobile-nav-btn w-full text-left px-4 py-3 rounded-xl font-medium text-[#F2E192] hover:bg-[#4A160E]/50 flex items-center justify-between">
                 <span><i class="fa-solid fa-user-plus mr-3"></i>Join Us</span>
                 <i class="fa-solid fa-chevron-right text-xs"></i>
             </button>
@@ -147,13 +147,11 @@
         <section id="tab-home" class="tab-content space-y-16">
             
             <!-- Hero Banner -->
-            <div class="relative rounded-3xl overflow-hidden glass-panel p-8 sm:p-12 lg:p-16 border border-violet-600/30 bg-gradient-to-br from-violet-900/70 via-violet-950/90 to-black shadow-2xl">
-                <div class="absolute top-0 right-0 -mt-12 -mr-12 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute bottom-0 left-0 -mb-12 -ml-12 w-80 h-80 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
-                
-                <div class="relative z-10 max-w-4xl space-y-6">
-                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-violet-800/50 border border-violet-500/30 text-violet-200 text-xs sm:text-sm font-semibold">
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                 <div class="relative rounded-3xl overflow-hidden glass-panel p-8 sm:p-12 lg:p-16  bg-gradient-to-br from-[#100B07]/90 via-[#4A160E]/80 to-[#050403] shadow-2xl">
+                <div class="absolute top-0 right-0 -mt-12 -mr-12 w-96 h-96 bg-[#E36F24]/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 -mb-12 -ml-12 w-80 h-80 bg-[#E36F24]/20 rounded-full blur-3xl pointer-events-none"></div>
+                            <div class="relative z-10 max-w-4xl space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#4A160E]/50 border border-[#E36F24]/30 text-[#F2E192] text-xs sm:text-sm font-semibold">
                         <span>Indian Institute of Information Technology Bhopal (IIIT Bhopal)</span>
                     </div>
 
@@ -161,27 +159,27 @@
                         <h1 class="text-4xl sm:text-7xl font-black tracking-tight text-white leading-none uppercase font-heading">
                             AI–ML CLUB
                         </h1>
-                        <p class="text-lg sm:text-2xl font-bold bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-300 bg-clip-text text-transparent">
-                            Artificial Intelligence • Machine Learning • Data Science • Deep Learning
+                        <p class="text-lg sm:text-2xl font-bold bg-gradient-to-r from-[#E36F24] via-[#F3D92A] to-[#F2E192] bg-clip-text text-transparent">
+                           Artificial Intelligence • Machine Learning • Data Science • Deep Learning
                         </p>
                     </div>
 
-                    <div class="inline-block bg-violet-900/60 border border-violet-600/40 rounded-2xl px-6 py-3">
+                    <div class="inline-block bg-[#100B07]/60 border border-[#E36F24]/40 rounded-2xl px-6 py-3">
                         <p class="text-base sm:text-lg font-extrabold text-amber-300 tracking-wide">
                             Core Tagline: <span class="text-white font-bold">"Learn. Build. Research. Innovate. Contribute."</span>
                         </p>
                     </div>
 
-                    <p class="text-sm sm:text-base text-violet-200/90 leading-relaxed font-normal max-w-3xl">
+                    <p class="text-sm sm:text-base text-[#F2E192]/90 leading-relaxed font-normal max-w-3xl">
                         Welcome to the official <strong>AI–ML Club of IIIT Bhopal</strong>. Founded to build a generation of innovators who do not merely learn AI — but push its boundaries through open source, collaborative projects, cutting-edge research, and real-world problem-solving.
                     </p>
 
                     <div class="flex flex-wrap gap-4 pt-4">
-                        <button onclick="switchTab('roadmap')" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 font-bold text-white shadow-lg shadow-violet-600/40 hover:shadow-violet-600/60 transition-all transform hover:-translate-y-1 flex items-center space-x-3">
+                        <button onclick="switchTab('roadmap')" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-[#E36F24] via-[#7A1F12] to-[#E36F24] hover:from-[#E36F24] hover:to-[#7A1F12] font-bold text-white shadow-lg shadow-[#E36F24]/40 hover:shadow-[#E36F24]/60 transition-all transform hover:-translate-y-1 flex items-center space-x-3">
                             <span>Explore Gamified Roadmap</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
-                        <button onclick="switchTab('recruitment')" class="px-8 py-4 rounded-2xl glass-panel hover:bg-violet-800/60 text-white font-semibold transition-all border border-violet-500/40 flex items-center space-x-2">
+                        <button onclick="switchTab('recruitment')" class="px-8 py-4 rounded-2xl glass-panel hover:bg-[#4A160E]/60 text-white font-semibold transition-all border border-[#E36F24]/40 flex items-center space-x-2">
                             <span>Join the Club</span>
                         </button>
                     </div>
@@ -191,244 +189,244 @@
             <!-- Quick Stats & Official Approval Banner -->
             <!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <div class="glass-panel p-6 rounded-2xl text-center border-t-4 border-t-amber-400">
-                    <div class="text-xs font-bold text-violet-400 uppercase tracking-widest mb-1">FOUNDED ON</div>
+                    <div class="text-xs font-bold text-[#E8A52A] uppercase tracking-widest mb-1">FOUNDED ON</div>
                     <div class="text-xl sm:text-2xl font-black text-white">25 August 2026</div>
-                    <p class="text-[11px] text-violet-300 mt-1">Official Establishment Date</p>
+                    <p class="text-[11px] text-[#F2E192] mt-1">Official Establishment Date</p>
                 </div>
 
                 <div class="glass-panel p-6 rounded-2xl text-center border-t-4 border-t-emerald-400">
-                    <div class="text-xs font-bold text-violet-400 uppercase tracking-widest mb-1">APPROVED BY</div>
+                    <div class="text-xs font-bold text-[#E8A52A] uppercase tracking-widest mb-1">APPROVED BY</div>
                     <div class="text-lg sm:text-xl font-bold text-white">Dr. Ashutosh Kumar Singh</div>
                     <p class="text-[11px] text-emerald-300 font-semibold mt-0.5">Hon'ble Director, IIIT Bhopal</p>
                 </div>
 
                 <div class="glass-panel p-6 rounded-2xl text-center border-t-4 border-t-violet-500">
-                    <div class="text-xs font-bold text-violet-400 uppercase tracking-widest mb-1">MENTOR PROFESSOR</div>
+                    <div class="text-xs font-bold text-[#E8A52A] uppercase tracking-widest mb-1">MENTOR PROFESSOR</div>
                     <div class="text-lg sm:text-xl font-bold text-white">Dr. Meenakshi Choudhary</div>
-                    <p class="text-[11px] text-violet-300 mt-0.5">Faculty Guidance & Support</p>
+                    <p class="text-[11px] text-[#F2E192] mt-0.5">Faculty Guidance & Support</p>
                 </div>
 
                 <div class="glass-panel p-6 rounded-2xl text-center border-t-4 border-t-cyan-400">
-                    <div class="text-xs font-bold text-violet-400 uppercase tracking-widest mb-1">FOUNDING TEAM</div>
+                    <div class="text-xs font-bold text-[#E8A52A] uppercase tracking-widest mb-1">FOUNDING TEAM</div>
                     <div class="text-2xl font-black text-white">6 Co-Founders</div>
                     <p class="text-[11px] text-cyan-300 font-medium mt-0.5">Student Visionaries</p>
                 </div>
             </div> -->
 
             <!-- Vision Statement Section -->
-            <div class="relative glass-panel rounded-3xl p-8 sm:p-12 border border-violet-500/40 bg-gradient-to-r from-violet-900/40 via-purple-950/60 to-violet-900/40 text-center space-y-6">
-                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-violet-800/60 text-violet-300 text-xs font-bold uppercase tracking-wider border border-violet-600/40">
-                    <i class="fa-solid fa-quote-left text-violet-400"></i>
-                    <span>VISION STATEMENT</span>
-                </div>
+            <div class="relative glass-panel rounded-3xl p-8 sm:p-12  bg-gradient-to-r from-[#100B07]/90 via-[#4A160E]/80 to-[#050403]/90 text-center space-y-6"> 
+    <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#4A160E]/60 text-[#F2E192] text-xs font-bold uppercase tracking-wider border border-[#E36F24]/40"> 
+        <i class="fa-solid fa-quote-left text-[#E8A52A]"></i> 
+        <span>VISION STATEMENT</span> 
+    </div> 
 
-                <blockquote class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-snug max-w-4xl mx-auto italic">
-                    “To build a generation of innovators who do not merely learn AI — <span class="bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-300 bg-clip-text text-transparent not-italic">but push its boundaries.</span>”
-                </blockquote>
+    <blockquote class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-snug max-w-4xl mx-auto italic"> 
+        “To build a generation of innovators who do not merely learn AI — <span class="bg-gradient-to-r from-[#E36F24] via-[#F3D92A] to-[#F2E192] bg-clip-text text-transparent not-italic">but push its boundaries.</span>” 
+    </blockquote> 
 
-                <p class="text-sm sm:text-base text-violet-200/90 leading-relaxed max-w-3xl mx-auto">
-                    The AI–ML Club at IIIT Bhopal was founded with the vision to establish a strong and vibrant technical ecosystem beyond conventional classroom learning. We strive to nurture curious minds into skilled professionals, researchers, and creators capable of deploying intelligent solutions to solve global problems.
-                </p>
-            </div>
+    <p class="text-sm sm:text-base text-[#F2E192]/90 leading-relaxed max-w-3xl mx-auto"> 
+        The AI–ML Club at IIIT Bhopal was founded with the vision to establish a strong and vibrant technical ecosystem beyond conventional classroom learning. We strive to nurture curious minds into skilled professionals, researchers, and creators capable of deploying intelligent solutions to solve global problems. 
+    </p> 
+</div>
 
             <!-- Founding Team & Leadership Section -->
-            <div class="space-y-8">
+            <!-- <div class="space-y-8">
                 <div class="text-center max-w-2xl mx-auto space-y-2">
                     <h2 class="text-3xl font-bold text-white">Founding Team & Leadership</h2>
-                    <p class="text-violet-300 text-sm">Established on 25 August 2026 under official approval and academic mentorship.</p>
-                </div>
+                    <p class="text-[#F2E192] text-sm">Established on 25 August 2026 under official approval and academic mentorship.</p>
+                </div> -->
 
                 <!-- Official Endorsements (Director & Mentor) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> -->
                     <!-- Director Card -->
-                    <div class="glass-panel p-6 rounded-3xl border border-amber-500/30 flex items-center space-x-5 bg-gradient-to-r from-amber-950/20 via-violet-900/30 to-violet-950/50">
+                    <!-- <div class="glass-panel p-6 rounded-3xl border border-amber-500/30 flex items-center space-x-5 bg-gradient-to-r from-amber-950/20 via-violet-900/30 to-violet-950/50">
                             <div class="w-20 h-20 mx-auto rounded-full p-1 bg-gradient-to-tr from-violet-500 via-indigo-500 to-cyan-400">
                                 <img src="{% static 'director.png' %}" alt="Mentor" class="w-full h-full object-cover rounded-full">
                             </div>   
                         <div>
                             <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest block">Officially Approved By</span>
                             <h3 class="text-xl font-extrabold text-white">Dr. Ashutosh Kumar Singh</h3>
-                            <p class="text-xs text-violet-300 font-medium">Director, IIIT Bhopal</p>
+                            <p class="text-xs text-[#F2E192] font-medium">Director, IIIT Bhopal</p>
                             <p class="text-xs text-slate-300 mt-2">Approved the establishment of the official AI–ML Club on 25 August 2026.</p>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Mentor Professor Card -->
-                    <div class="glass-panel p-6 rounded-3xl border border-violet-500/30 flex items-center space-x-5 bg-gradient-to-r from-violet-900/40 via-purple-950/30 to-violet-950/50">
+                    <!-- <div class="glass-panel p-6 rounded-3xl border border-[#E36F24]/30 flex items-center space-x-5 bg-gradient-to-r from-violet-900/40 via-purple-950/30 to-violet-950/50">
                             <div class="w-20 h-20 mx-auto rounded-full p-1 bg-gradient-to-tr from-violet-500 via-indigo-500 to-cyan-400">
                                 <img src="{% static 'mentor.png' %}" alt="Mentor" class="w-full h-full object-cover rounded-full">
                             </div>                        
                         <div>
-                            <span class="text-[10px] font-bold text-violet-400 uppercase tracking-widest block">Faculty Mentor</span>
+                            <span class="text-[10px] font-bold text-[#E8A52A] uppercase tracking-widest block">Faculty Mentor</span>
                             <h3 class="text-xl font-extrabold text-white">Dr. Meenakshi Choudhary</h3>
-                            <p class="text-xs text-violet-300 font-medium">Mentor Professor, IIIT Bhopal</p>
+                            <p class="text-xs text-[#F2E192] font-medium">Mentor Professor, IIIT Bhopal</p>
                             <p class="text-xs text-slate-300 mt-2">Providing academic direction, research guidance, and technical mentorship.</p>
                         </div>
                     </div>
-                    <div class="glass-panel p-6 rounded-3xl border border-violet-500/30 flex items-center space-x-5 bg-gradient-to-r from-violet-900/40 via-purple-950/30 to-violet-950/50">
+                    <div class="glass-panel p-6 rounded-3xl border border-[#E36F24]/30 flex items-center space-x-5 bg-gradient-to-r from-violet-900/40 via-purple-950/30 to-violet-950/50">
                             <div class="w-20 h-20 mx-3 rounded-full p-1 bg-gradient-to-tr from-violet-500 via-indigo-500 to-cyan-400">
                                 <img src="{% static 'hardik.png' %}" alt="hardik" class="w-full h-full object-cover rounded-full">
                             </div>                        
                         <div>
-                            <span class="text-[10px] font-bold text-violet-400 uppercase tracking-widest block">Club President</span>
+                            <span class="text-[10px] font-bold text-[#E8A52A] uppercase tracking-widest block">Club President</span>
                             <h3 class="text-xl font-extrabold text-white">Hardik Agrawal</h3>
-                            <p class="text-xs text-violet-300 font-medium">Tresurer ,Student Council, IIIT Bhopal</p>
+                            <p class="text-xs text-[#F2E192] font-medium">Tresurer ,Student Council, IIIT Bhopal</p>
                             <p class="text-xs text-slate-300 mt-2">Joined the Matrix Club on  25 August 2026.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
 
                 <!-- Founding Team 6 Members Grid -->
-                <div class="space-y-4">
-                    <h3 class="text-xl font-extrabold text-center text-violet-200">Founding Members</h3>
+                <!-- <div class="space-y-4">
+                    <h3 class="text-xl font-extrabold text-center text-[#F2E192]">Founding Members</h3>
                     
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> -->
                         <!-- President pannel -->
-                        <!-- <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-violet-700/40 relative">
+                        <!-- <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-[#7A1F12]/40 relative">
                             <div class="w-20 h-20 mx-auto rounded-full p-1 bg-gradient-to-tr from-violet-500 via-indigo-500 to-cyan-400">
                                 <img src="" alt="president" class="w-full h-full object-cover rounded-full">
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold text-white">President</h4>
-                                <span class="text-[10px] bg-violet-800 text-violet-200 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
+                                <span class="text-[10px] bg-[#4A160E] text-[#F2E192] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
                             </div>
                             <p class="text-xs text-slate-300">Founding member leading machine learning architectures and club initiatives.</p>
                         </div> -->
                         <!-- Founder 1 -->
-                        <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-violet-700/40 relative">
+                        <!-- <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-[#7A1F12]/40 relative">
                             <div class="w-20 h-20 mx-auto rounded-full p-1 bg-gradient-to-tr from-violet-500 via-indigo-500 to-cyan-400">
                                 <img src="{% static 'Arpit.jpeg' %}" alt="Arpit Shukla" class="w-full h-full object-cover rounded-full">
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold text-white">Arpit Shukla</h4>
-                                <span class="text-[10px] bg-violet-800 text-violet-200 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
+                                <span class="text-[10px] bg-[#4A160E] text-[#F2E192] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
                             </div>
                             <p class="text-xs text-slate-300">Founding member leading machine learning architectures and club initiatives.</p>
-                        </div>
+                        </div> -->
 
                         <!-- Founder 2 -->
-                        <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-violet-700/40 relative">
+                        <!-- <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-[#7A1F12]/40 relative">
                             <div class="w-20 h-20 mx-auto rounded-full p-1 bg-gradient-to-tr from-purple-500 via-fuchsia-500 to-pink-500">
                                 <img src="{% static 'veer.jpeg' %}" alt="Veer Jain" class="w-full h-full object-cover rounded-full">
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold text-white">Veer Jain</h4>
-                                <span class="text-[10px] bg-violet-800 text-violet-200 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
+                                <span class="text-[10px] bg-[#4A160E] text-[#F2E192] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
                             </div>
                             <p class="text-xs text-slate-300">Founding member driving open-source project development and technical roadmaps.</p>
-                        </div>
+                        </div> -->
 
                         <!-- Founder 3 -->
-                        <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-violet-700/40 relative">
+                        <!-- <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-[#7A1F12]/40 relative">
                             <div class="w-20 h-50 mx-auto rounded-full p-1 bg-gradient-to-tr from-cyan-400 via-teal-500 to-emerald-400">
                                 <img src="{% static 'Aditya.jpeg' %}" alt="Aditya Rana" class="w-full h-full object-cover rounded-full">
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold text-white">Aditya Rana</h4>
-                                <span class="text-[10px] bg-violet-800 text-violet-200 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
+                                <span class="text-[10px] bg-[#4A160E] text-[#F2E192] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
                             </div>
                             <p class="text-xs text-slate-300">Founding member focusing on Data Science modeling and analytical systems.</p>
-                        </div>
+                        </div> -->
 
                         <!-- Founder 4 -->
-                        <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-violet-700/40 relative">
+                        <!-- <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-[#7A1F12]/40 relative">
                             <div class="w-20 h-15 mx-auto rounded-full p-1 bg-gradient-to-tr from-indigo-500 to-violet-500">
                                 <img src="{% static 'vaibhav.jpeg' %}" alt="Vaibhav Trivedi" class="w-full h-full object-cover rounded-full">
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold text-white">Vaibhav Trivedi</h4>
-                                <span class="text-[10px] bg-violet-800 text-violet-200 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
+                                <span class="text-[10px] bg-[#4A160E] text-[#F2E192] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
                             </div>
                             <p class="text-xs text-slate-300">Founding member guiding Deep Learning research and model optimizations.</p>
-                        </div>
+                        </div> -->
 
                         <!-- Founder 5 -->
-                        <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-violet-700/40 relative">
+                        <!-- <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-[#7A1F12]/40 relative">
                             <div class="w-20 h-20 mx-auto rounded-full p-1 bg-gradient-to-tr from-amber-400 to-orange-500">
                                 <img src="{% static 'shikhar.jpeg' %}" alt="Shikhar Verma" class="w-full h-full object-cover rounded-full">
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold text-white">Shikhar Verma</h4>
-                                <span class="text-[10px] bg-violet-800 text-violet-200 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
+                                <span class="text-[10px] bg-[#4A160E] text-[#F2E192] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
                             </div>
                             <p class="text-xs text-slate-300">Founding member leading competitive ML events and community engagement.</p>
-                        </div>
+                        </div> -->
 
                         <!-- Founder 6 -->
-                        <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-violet-700/40 relative">
+                        <!-- <div class="glass-panel rounded-2xl p-5 text-center space-y-3 glass-panel-hover border border-[#7A1F12]/40 relative">
                             <div class="w-20 h-20 mx-auto rounded-full p-1 bg-gradient-to-tr from-pink-500 to-rose-500">
                                 <img src="{% static 'abhay.jpeg' %}" alt="Abhay Patel" class="w-full h-full object-cover rounded-full">
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold text-white">Abhay Patel</h4>
-                                <span class="text-[10px] bg-violet-800 text-violet-200 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
+                                <span class="text-[10px] bg-[#4A160E] text-[#F2E192] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">Co-Founder</span>
                             </div>
                             <p class="text-xs text-slate-300">Founding member coordinating research papers and technical workshops.</p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Core Focus Areas Section -->
             <div class="space-y-8">
                 <div class="text-center max-w-2xl mx-auto space-y-2">
                     <h2 class="text-3xl font-bold text-white">Core Focus Areas</h2>
-                    <p class="text-violet-300 text-sm">Key domains driving innovation within the AI–ML Club at IIIT Bhopal</p>
+                    <p class="text-[#F2E192] text-sm">Key domains driving innovation within the AI–ML Club at IIIT Bhopal</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- 1. AI & ML -->
-                    <div class="glass-panel p-6 rounded-2xl border border-violet-700/40 space-y-3 glass-panel-hover">
-                        <div class="w-12 h-12 rounded-xl bg-violet-800/60 flex items-center justify-center text-violet-300 text-2xl">
+                    <div class="glass-panel p-6 rounded-2xl border border-[#7A1F12]/40 space-y-3 glass-panel-hover">
+                        <div class="w-12 h-12 rounded-xl bg-[#4A160E]/60 flex items-center justify-center text-[#F2E192] text-2xl">
                             🤖
                         </div>
                         <h3 class="text-xl font-bold text-white">Artificial Intelligence & Machine Learning</h3>
-                        <p class="text-xs text-violet-200/80 leading-relaxed">
+                        <p class="text-xs text-[#F2E192]/80 leading-relaxed">
                             Supervised and unsupervised algorithms, predictive modeling, reinforcement learning, and productionizing intelligent agents.
                         </p>
                     </div>
 
                     <!-- 2. Data Science -->
-                    <div class="glass-panel p-6 rounded-2xl border border-violet-700/40 space-y-3 glass-panel-hover">
+                    <div class="glass-panel p-6 rounded-2xl border border-[#7A1F12]/40 space-y-3 glass-panel-hover">
                         <div class="w-12 h-12 rounded-xl bg-indigo-800/60 flex items-center justify-center text-indigo-300 text-2xl">
                             📊
                         </div>
                         <h3 class="text-xl font-bold text-white">Data Science</h3>
-                        <p class="text-xs text-violet-200/80 leading-relaxed">
+                        <p class="text-xs text-[#F2E192]/80 leading-relaxed">
                             Exploratory data analysis, statistical modeling, data visualization, feature engineering, and big data pipelines.
                         </p>
                     </div>
 
                     <!-- 3. Deep Learning -->
-                    <div class="glass-panel p-6 rounded-2xl border border-violet-700/40 space-y-3 glass-panel-hover">
+                    <div class="glass-panel p-6 rounded-2xl border border-[#7A1F12]/40 space-y-3 glass-panel-hover">
                         <div class="w-12 h-12 rounded-xl bg-purple-800/60 flex items-center justify-center text-purple-300 text-2xl">
                             🧠
                         </div>
                         <h3 class="text-xl font-bold text-white">Deep Learning</h3>
-                        <p class="text-xs text-violet-200/80 leading-relaxed">
+                        <p class="text-xs text-[#F2E192]/80 leading-relaxed">
                             Neural network architectures, Computer Vision, Transformers, Natural Language Processing (NLP), and Generative AI.
                         </p>
                     </div>
 
                     <!-- 4. Research & Innovation -->
-                    <div class="glass-panel p-6 rounded-2xl border border-violet-700/40 space-y-3 glass-panel-hover">
+                    <div class="glass-panel p-6 rounded-2xl border border-[#7A1F12]/40 space-y-3 glass-panel-hover">
                         <div class="w-12 h-12 rounded-xl bg-cyan-800/60 flex items-center justify-center text-cyan-300 text-2xl">
                             🔬
                         </div>
                         <h3 class="text-xl font-bold text-white">Research & Innovation</h3>
-                        <p class="text-xs text-violet-200/80 leading-relaxed">
+                        <p class="text-xs text-[#F2E192]/80 leading-relaxed">
                             Conducting novel research, authoring conference papers, solving unsolved technical challenges, and exploring modern AI paradigms.
                         </p>
                     </div>
 
                     <!-- 5. Open Source -->
-                    <div class="glass-panel p-6 rounded-2xl border border-violet-700/40 space-y-3 glass-panel-hover md:col-span-2">
+                    <div class="glass-panel p-6 rounded-2xl border border-[#7A1F12]/40 space-y-3 glass-panel-hover md:col-span-2">
                         <div class="w-12 h-12 rounded-xl bg-emerald-800/60 flex items-center justify-center text-emerald-300 text-2xl">
                             🌐
                         </div>
                         <h3 class="text-xl font-bold text-white">Open Source Ecosystem</h3>
-                        <p class="text-xs text-violet-200/80 leading-relaxed">
+                        <p class="text-xs text-[#F2E192]/80 leading-relaxed">
                             Highlighting GitHub contributions, building open-source projects, maintaining public repositories, and constructing industry-grade portfolios to foster collaborative student development.
                         </p>
                     </div>
@@ -436,67 +434,67 @@
             </div>
 
             <!-- Mission & Growth Journey Section -->
-            <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-violet-600/30 space-y-10">
+            <div class="glass-panel rounded-3xl p-8 sm:p-12  space-y-10">
                 <div class="text-center max-w-3xl mx-auto space-y-3">
-                    <!-- <span class="px-3.5 py-1 rounded-full bg-violet-800/60 text-violet-300 text-xs font-bold uppercase">MISSION & GROWTH PATHWAY</span> -->
+                    <!-- <span class="px-3.5 py-1 rounded-full bg-[#4A160E]/60 text-[#F2E192] text-xs font-bold uppercase">MISSION & GROWTH PATHWAY</span> -->
                     <h2 class="text-3xl font-extrabold text-white">Our Mission & Student Evolution</h2>
-                    <p class="text-violet-300 text-sm">Empowering students through structured growth and tangible learning milestones.</p>
+                    <p class="text-[#F2E192] text-sm">Empowering students through structured growth and tangible learning milestones.</p>
                 </div>
 
                 <!-- Core Pathway Flow -->
                 <!-- <div class="space-y-4">
-                    <h4 class="text-xs font-bold text-violet-400 uppercase tracking-widest text-center">Core Pathway</h4>
+                    <h4 class="text-xs font-bold text-[#E8A52A] uppercase tracking-widest text-center">Core Pathway</h4>
                     <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm font-bold">
-                        <span class="px-4 py-2 rounded-xl bg-violet-900 border border-violet-700 text-white">Learn</span>
-                        <i class="fa-solid fa-arrow-right text-violet-500"></i>
-                        <span class="px-4 py-2 rounded-xl bg-violet-900 border border-violet-700 text-white">Build</span>
-                        <i class="fa-solid fa-arrow-right text-violet-500"></i>
-                        <span class="px-4 py-2 rounded-xl bg-violet-900 border border-violet-700 text-white">Research</span>
-                        <i class="fa-solid fa-arrow-right text-violet-500"></i>
-                        <span class="px-4 py-2 rounded-xl bg-violet-900 border border-violet-700 text-white">Innovate</span>
-                        <i class="fa-solid fa-arrow-right text-violet-500"></i>
-                        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg">Contribute</span>
+                        <span class="px-4 py-2 rounded-xl bg-[#100B07] border border-[#7A1F12] text-white">Learn</span>
+                        <i class="fa-solid fa-arrow-right text-[#E36F24]"></i>
+                        <span class="px-4 py-2 rounded-xl bg-[#100B07] border border-[#7A1F12] text-white">Build</span>
+                        <i class="fa-solid fa-arrow-right text-[#E36F24]"></i>
+                        <span class="px-4 py-2 rounded-xl bg-[#100B07] border border-[#7A1F12] text-white">Research</span>
+                        <i class="fa-solid fa-arrow-right text-[#E36F24]"></i>
+                        <span class="px-4 py-2 rounded-xl bg-[#100B07] border border-[#7A1F12] text-white">Innovate</span>
+                        <i class="fa-solid fa-arrow-right text-[#E36F24]"></i>
+                        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-[#E36F24] to-[#E36F24] text-white shadow-lg">Contribute</span>
                     </div>
                 </div> -->
 
                 <!-- Progression Spectrum -->
-                <!-- <div class="space-y-4 pt-4 border-t border-violet-800/50">
-                    <h4 class="text-xs font-bold text-violet-400 uppercase tracking-widest text-center">Student Progression Journey</h4>
+                <!-- <div class="space-y-4 pt-4 border-t border-[#7A1F12]/50">
+                    <h4 class="text-xs font-bold text-[#E8A52A] uppercase tracking-widest text-center">Student Progression Journey</h4>
                     <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-center">
-                        <div class="p-3 rounded-xl bg-violet-950 border border-violet-800 text-xs font-semibold text-violet-300">
+                        <div class="p-3 rounded-xl bg-[#050403] border border-[#7A1F12] text-xs font-semibold text-[#F2E192]">
                             1. Learners
                         </div>
-                        <div class="p-3 rounded-xl bg-violet-950 border border-violet-800 text-xs font-semibold text-violet-200">
+                        <div class="p-3 rounded-xl bg-[#050403] border border-[#7A1F12] text-xs font-semibold text-[#F2E192]">
                             2. Developers
                         </div>
-                        <div class="p-3 rounded-xl bg-violet-950 border border-violet-800 text-xs font-semibold text-violet-100">
+                        <div class="p-3 rounded-xl bg-[#050403] border border-[#7A1F12] text-xs font-semibold text-violet-100">
                             3. Researchers
                         </div>
-                        <div class="p-3 rounded-xl bg-violet-950 border border-violet-800 text-xs font-semibold text-fuchsia-300">
+                        <div class="p-3 rounded-xl bg-[#050403] border border-[#7A1F12] text-xs font-semibold text-fuchsia-300">
                             4. Innovators
                         </div>
-                        <div class="p-3 rounded-xl bg-violet-950 border border-violet-800 text-xs font-bold text-emerald-400 col-span-2 sm:col-span-1">
+                        <div class="p-3 rounded-xl bg-[#050403] border border-[#7A1F12] text-xs font-bold text-emerald-400 col-span-2 sm:col-span-1">
                             5. Contributors
                         </div>
                     </div>
                 </div> -->
 
                 <!-- Mission Goals Bulleted List -->
-                <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-violet-200/90 pt-4">
-                    <div class="flex items-start space-x-3 p-4 rounded-xl bg-violet-900/30 border border-violet-800/50">
-                        <i class="fa-solid fa-check-circle text-violet-400 text-base mt-0.5"></i>
+                <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-[#F2E192]/90 pt-4">
+                    <div class="flex items-start space-x-3 p-4 rounded-xl bg-[#100B07]/30 border border-[#7A1F12]/50">
+                        <i class="fa-solid fa-check-circle text-[#E8A52A] text-base mt-0.5"></i>
                         <span>Hands-on workshops, peer learning sessions, and hackathons tailored for all skill levels.</span>
                     </div>
-                    <div class="flex items-start space-x-3 p-4 rounded-xl bg-violet-900/30 border border-violet-800/50">
-                        <i class="fa-solid fa-check-circle text-violet-400 text-base mt-0.5"></i>
+                    <div class="flex items-start space-x-3 p-4 rounded-xl bg-[#100B07]/30 border border-[#7A1F12]/50">
+                        <i class="fa-solid fa-check-circle text-[#E8A52A] text-base mt-0.5"></i>
                         <span>Collaborative open-source software projects with dedicated GitHub organizational support.</span>
                     </div>
-                    <div class="flex items-start space-x-3 p-4 rounded-xl bg-violet-900/30 border border-violet-800/50">
-                        <i class="fa-solid fa-check-circle text-violet-400 text-base mt-0.5"></i>
+                    <div class="flex items-start space-x-3 p-4 rounded-xl bg-[#100B07]/30 border border-[#7A1F12]/50">
+                        <i class="fa-solid fa-check-circle text-[#E8A52A] text-base mt-0.5"></i>
                         <span>Mentorship for research paper writing, datasets compilation, and conference publishing.</span>
                     </div>
-                    <div class="flex items-start space-x-3 p-4 rounded-xl bg-violet-900/30 border border-violet-800/50">
-                        <i class="fa-solid fa-check-circle text-violet-400 text-base mt-0.5"></i>
+                    <div class="flex items-start space-x-3 p-4 rounded-xl bg-[#100B07]/30 border border-[#7A1F12]/50">
+                        <i class="fa-solid fa-check-circle text-[#E8A52A] text-base mt-0.5"></i>
                         <span>Building strong portfolios to prepare students for top AI research roles and industry careers.</span>
                     </div>
                 </div>
@@ -505,52 +503,52 @@
             <!-- Our Promise & Welcome Section -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- OUR PROMISE -->
-                <div class="glass-panel p-8 rounded-3xl border border-violet-700/40 space-y-4">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-violet-800/60 text-violet-300 text-xs font-bold uppercase">
-                        <i class="fa-solid fa-handshake"></i>
-                        <span>OUR PROMISE</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white">Community Principles</h3>
-                    <ul class="space-y-3 text-xs sm:text-sm text-violet-200/90">
-                        <li class="flex items-center space-x-3">
-                            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
-                            <span>Every question is welcomed, regardless of experience.</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
-                            <span>Failure is embraced as a natural step toward learning.</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
-                            <span>Collaboration is prioritized over competition.</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
-                            <span>Innovation and initiative are celebrated and supported.</span>
-                        </li>
-                    </ul>
-                </div>
+               <div class="glass-panel p-8 rounded-3xl border border-[#7A1F12]/40 space-y-4 bg-gradient-to-br from-[#100B07]/90 via-[#4A160E]/70 to-[#050403]/90"> 
+    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#4A160E]/60 text-[#F2E192] text-xs font-bold uppercase"> 
+        <i class="fa-solid fa-handshake"></i> 
+        <span>OUR PROMISE</span> 
+    </div> 
+
+    <h3 class="text-2xl font-bold text-white">Community Principles</h3> 
+
+    <ul class="space-y-3 text-xs sm:text-sm text-[#F2E192]/90"> 
+        <li class="flex items-center space-x-3"> 
+            <span>-> Every question is welcomed, regardless of experience.</span> 
+        </li> 
+
+        <li class="flex items-center space-x-3"> 
+            <span>-> Failure is embraced as a natural step toward learning.</span> 
+        </li> 
+
+        <li class="flex items-center space-x-3"> 
+            <span>-> Collaboration is prioritized over competition.</span> 
+        </li> 
+
+        <li class="flex items-center space-x-3"> 
+            <span>-> Innovation and initiative are celebrated and supported.</span> 
+        </li> 
+    </ul> 
+</div>
 
                 <!-- WELCOME TO THE JOURNEY -->
-                <div class="glass-panel p-8 rounded-3xl border border-violet-700/40 space-y-4 bg-gradient-to-br from-violet-900/50 to-purple-900/40 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-violet-800/60 text-violet-300 text-xs font-bold uppercase">
-                            <i class="fa-solid fa-rocket"></i>
-                            <span>WELCOME TO THE JOURNEY</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white">Shape the Future of AI</h3>
-                        <p class="text-xs sm:text-sm text-violet-200/90 leading-relaxed">
-                            Whether you are taking your first steps in Python or training complex neural architectures, the AI–ML Club at IIIT Bhopal is your launchpad. Join us in building intelligent systems that define tomorrow.
-                        </p>
-                    </div>
+                <div class="glass-panel p-8 rounded-3xl border border-[#7A1F12]/40 space-y-4 bg-gradient-to-br from-[#100B07]/90 via-[#4A160E]/70 to-[#050403]/90 flex flex-col justify-between">
+    <div class="space-y-3">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#4A160E]/60 text-[#F2E192] text-xs font-bold uppercase">
+            <i class="fa-solid fa-rocket"></i>
+            <span>WELCOME TO THE JOURNEY</span>
+        </div>
+        <h3 class="text-2xl font-bold text-white">Shape the Future of AI</h3>
+        <p class="text-xs sm:text-sm text-[#F2E192]/90 leading-relaxed">
+            Whether you are taking your first steps in Python or training complex neural architectures, the AI–ML Club at IIIT Bhopal is your launchpad. Join us in building intelligent systems that define tomorrow.
+        </p>
+    </div>
 
-                    <div class="pt-4">
-                        <button onclick="switchTab('recruitment')" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md">
-                            Get Started - Join AI–ML Club
-                        </button>
-                    </div>
-                </div>
-            </div>
+    <div class="pt-4">
+        <button onclick="switchTab('recruitment')" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#B83A16] to-[#E36F24] hover:from-[#E36F24] hover:to-[#E8A52A] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md">
+            Get Started - Join AI–ML Club
+        </button>
+    </div>
+</div>
 
         </section>
 
@@ -558,24 +556,24 @@
         <section id="tab-roadmap" class="tab-content hidden space-y-12">
             
             <!-- Header Banner -->
-            <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-violet-600/30 flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-violet-900/50 to-purple-900/30">
-                <div class="space-y-2 text-center md:text-left">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-violet-800/60 text-violet-300 text-xs font-semibold">
-                        <i class="fa-solid fa-gamepad"></i>
-                        <span> Gamified Learning Path</span>
-                    </div>
-                    <h2 class="text-3xl font-extrabold text-white">Level-Wise Skill Quest</h2>
-                    <p class="text-violet-300 text-sm max-w-xl">Complete topics sequentially to unlock next levels. Earn XP, gain badges, and access handpicked resources!</p>
-                </div>
+           <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-[#E36F24]/30 flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-[#100B07]/90 via-[#4A160E]/70 to-[#050403]/90"> 
+           <div class="space-y-2 text-center md:text-left"> 
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#4A160E]/60 text-[#F2E192] text-xs font-semibold"> 
+            <i class="fa-solid fa-gamepad"></i> 
+            <span> Gamified Learning Path</span> 
+        </div> 
+        <h2 class="text-3xl font-extrabold text-white">Level-Wise Skill Quest</h2> 
+        <p class="text-[#F2E192] text-sm max-w-xl">Complete topics sequentially to unlock next levels. Earn XP, gain badges, and access handpicked resources!</p> 
+    </div>
                 
-                <!-- <div class="flex items-center space-x-4 bg-violet-950/80 p-4 rounded-2xl border border-violet-700/50">
-                    <div class="text-center px-3 border-r border-violet-800">
-                        <span class="block text-xs text-violet-400 font-semibold uppercase">Progress</span>
+                <!-- <div class="flex items-center space-x-4 bg-[#050403]/80 p-4 rounded-2xl border border-[#7A1F12]/50">
+                    <div class="text-center px-3 border-r border-[#7A1F12]">
+                        <span class="block text-xs text-[#E8A52A] font-semibold uppercase">Progress</span>
                         <span id="roadmap-completion-percent" class="text-2xl font-black text-emerald-400">35%</span>
                     </div>
                     <div class="text-center px-3">
-                        <span class="block text-xs text-violet-400 font-semibold uppercase">Unlocked</span>
-                        <span id="unlocked-count" class="text-2xl font-black text-violet-200">6 / 18</span>
+                        <span class="block text-xs text-[#E8A52A] font-semibold uppercase">Unlocked</span>
+                        <span id="unlocked-count" class="text-2xl font-black text-[#F2E192]">6 / 18</span>
                     </div> -->
                 </div>
             </div>
@@ -585,7 +583,7 @@
                 
                 <!-- LEVEL 1 CONTAINER -->
                 <div class="space-y-8">
-                    <div class="text-center bg-violet-900/70 border border-violet-700/50 rounded-2xl p-4 shadow-lg backdrop-blur">
+                    <div class="text-center bg-[#100B07]/70 border border-[#7A1F12]/50 rounded-2xl p-4 shadow-lg backdrop-blur">
                         <h3 class="text-xl font-extrabold text-white">Python & Programming Foundations</h3>
                     </div>
 
@@ -598,7 +596,7 @@
                                 <i class="fa-solid fa-terminal"></i>
                                 <!-- <span class="absolute -bottom-2 bg-emerald-950 text-emerald-300 border border-emerald-500 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-check mr-1"></i>Done</span> -->
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Fundamentals</span>
+                            <span class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">Fundamentals</span>
                         </div>
 
                         <!-- Node 2: Completed -->
@@ -607,16 +605,16 @@
                                 <i class="fa-solid fa-code font-bold"></i>
                                 <!-- <span class="absolute -bottom-2 bg-emerald-950 text-emerald-300 border border-emerald-500 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-check mr-1"></i>Done</span> -->
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">NumPy</span>
+                            <span class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">NumPy</span>
                         </div>
 
                         <!-- Node 3: Active (In Progress) -->
                         <div onclick="openNodeModal(3)" class="cursor-pointer group flex flex-col items-center -ml-16 sm:-ml-24">
                             <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative">
                                 <i class="fa-solid fa-code-branch"></i>
-                                <!-- <span class="absolute -bottom-2 bg-violet-950 text-violet-300 border border-violet-500 text-[10px] font-bold px-2.5 py-0.5 rounded-full animate-pulse">Current</span> -->
+                                <!-- <span class="absolute -bottom-2 bg-[#050403] text-[#F2E192] border border-[#E36F24] text-[10px] font-bold px-2.5 py-0.5 rounded-full animate-pulse">Current</span> -->
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Pandas</span>
+                            <span class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">Pandas</span>
                         </div>
 
                         <!-- Node 4: Unlocked -->
@@ -624,14 +622,14 @@
                             <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative">
                                 <i class="fa-solid fa-rotate-right"></i>
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Matplotlib</span>
+                            <span class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">Matplotlib</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- LEVEL 2 CONTAINER -->
                 <div class="space-y-8 pt-6">
-                    <div class="text-center bg-indigo-900/70 border border-indigo-700/50 rounded-2xl p-4 shadow-lg backdrop-blur">
+                   <div class="text-center bg-[#100B07]/90 border border-[#7A1F12]/50 rounded-2xl p-4 shadow-lg backdrop-blur">
                         <h3 class="text-xl font-extrabold text-white">Maths for ML</h3>
                     </div>
 
@@ -640,31 +638,31 @@
                             <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
                                 <i class="fa-solid fa-calculator"></i>
                             </div>
-                            <span  class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Linear Algebra</span>
+                            <span  class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">Linear Algebra</span>
                         </div>
 
                         <div onclick="openNodeModal(6)" class="cursor-pointer group flex flex-col items-center ml-16 sm:ml-24">
                             <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
                                 <i class="fa-solid fa-table"></i>
                             </div>
-                            <span  class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Probability & Statistics</span>
+                            <span  class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">Probability & Statistics</span>
                         </div>
 
                         <div onclick="openNodeModal(7)" class="cursor-pointer group flex flex-col items-center -ml-16 sm:-ml-24">
                             <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
                                 <i class="fa-solid fa-chart-line"></i>
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Getting into ML</span>
+                            <span class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">Getting into ML</span>
                         </div>
 
                         <div onclick="openNodeModal(8)" class="cursor-pointer group flex flex-col items-center ml-12 sm:ml-20">
                             <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
                                 <i class="fa-solid fa-chart-line"></i>
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Projects</span>
+                            <span class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">Projects</span>
                         </div>
                     </div>
-                    <div class="text-center bg-indigo-900/70 border border-indigo-700/50 rounded-2xl p-4 shadow-lg backdrop-blur">
+                    <div class="text-center bg-[#100B07]/90 border border-[#7A1F12]/50 rounded-2xl p-4 shadow-lg backdrop-blur">
                         <h3 class="text-xl font-extrabold text-white">Core ML Algorithms</h3>
                     </div>
 
@@ -673,34 +671,34 @@
                             <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
                                 <i class="fa-solid fa-calculator"></i>
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Regression</span>
+                            <span class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">Regression</span>
                         </div>
 
                         <div onclick="openNodeModal(10)" class="cursor-pointer group flex flex-col items-center ml-16 sm:ml-24">
                             <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
                                 <i class="fa-solid fa-table"></i>
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Classification</span>
+                            <span class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">Classification</span>
                         </div>
 
                         <div onclick="openNodeModal(11)" class="cursor-pointer group flex flex-col items-center -ml-16 sm:-ml-24">
                             <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
                                 <i class="fa-solid fa-chart-line"></i>
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Ensemble Learning</span>
+                            <span class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">Ensemble Learning</span>
                         </div>
 
                         <div onclick="openNodeModal(12)" class="cursor-pointer group flex flex-col items-center ml-12 sm:ml-20">
                             <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
                                 <i class="fa-solid fa-chart-line"></i>
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Unsupervised Learning</span>
+                            <span class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">Unsupervised Learning</span>
                         </div>
                         <div onclick="openNodeModal(13)" class="cursor-pointer group flex flex-col items-center">
                             <div class="node-active w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl transition-transform transform group-hover:scale-110 relative shadow-lg">
                                 <i class="fa-solid fa-chart-line"></i>
                             </div>
-                            <span class="mt-3 text-sm font-bold text-violet-300 group-hover:text-white">Model Evaluation and Improvement</span>
+                            <span class="mt-3 text-sm font-bold text-[#F2E192] group-hover:text-white">Model Evaluation and Improvement</span>
                         </div>
                     </div>
                 </div>
@@ -712,15 +710,15 @@
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                     <h2 class="text-3xl font-extrabold text-white">Club Projects Hub</h2>
-                    <p class="text-violet-300 text-sm">Explore ongoing research models and open-source GitHub builds.</p>
+                    <p class="text-[#F2E192] text-sm">Explore ongoing research models and open-source GitHub builds.</p>
                 </div>
 
                 <!-- Active / Completed Project Filters -->
-                <div class="flex p-1 bg-violet-900/60 rounded-xl border border-violet-700/50">
-                    <button onclick="filterProjects('active')" id="proj-filter-active" class="px-5 py-2 rounded-lg text-xs font-bold transition-all bg-violet-600 text-white shadow">
+                <div class="flex p-1 bg-[#100B07]/60 rounded-xl border border-[#7A1F12]/50">
+                    <button onclick="filterProjects('active')" id="proj-filter-active" class="px-5 py-2 rounded-lg text-xs font-bold transition-all bg-[#E36F24] text-white shadow">
                         Active Projects (1)
                     </button>
-                    <button onclick="filterProjects('completed')" id="proj-filter-completed" class="px-5 py-2 rounded-lg text-xs font-bold transition-all text-violet-300 hover:text-white">
+                    <button onclick="filterProjects('completed')" id="proj-filter-completed" class="px-5 py-2 rounded-lg text-xs font-bold transition-all text-[#F2E192] hover:text-white">
                         Completed (1)
                     </button>
                 </div>
@@ -730,14 +728,14 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
                 <!-- Project 1 (Active) -->
-                <div class="project-card active-proj glass-panel rounded-3xl p-6 border border-violet-700/40 flex flex-col justify-between space-y-6 glass-panel-hover">
+                <div class="project-card active-proj glass-panel rounded-3xl p-6 border border-[#7A1F12]/40 flex flex-col justify-between space-y-6 glass-panel-hover">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
                             <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-500/40 flex items-center space-x-1.5">
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                                 <span>Active Open Source Build</span>
                             </span>
-                            <span class="text-xs text-violet-400 font-medium">Domain: Computer Vision</span>
+                            <span class="text-xs text-[#E8A52A] font-medium">Domain: Computer Vision</span>
                         </div>
 
                         <h3 class="text-2xl font-extrabold text-white">Demo Project</h3>
@@ -747,21 +745,21 @@
 
                         <!-- Tech Stack Tags -->
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">Python</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">PyTorch</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">OpenCV</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">FastAPI</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">PyTorch</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">OpenCV</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">FastAPI</span>
                         </div>
                     </div>
 
-                    <div class="pt-4 border-t border-violet-800/60 flex items-center justify-between">
-                        <div class="text-xs text-violet-300">
-                            <span class="block text-[10px] text-violet-400 uppercase font-semibold">Project Lead</span>
+                    <div class="pt-4 border-t border-[#7A1F12]/60 flex items-center justify-between">
+                        <div class="text-xs text-[#F2E192]">
+                            <span class="block text-[10px] text-[#E8A52A] uppercase font-semibold">Project Lead</span>
                             <span class="font-bold text-white">Arpit Shukla</span>
                         </div>
                     <form action="contribution" method="POST">
                         {% csrf_token %}
-                        <button  class="px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold transition-all shadow-md flex items-center space-x-2">
+                        <button  class="px-4 py-2 rounded-xl bg-[#E36F24] hover:bg-[#E8A52A] text-white text-xs font-bold transition-all shadow-md flex items-center space-x-2">
                             <i class="fa-solid fa-code-pull-request"></i>
 
                             <span>Want to Contribute?</span>
@@ -771,14 +769,14 @@
                 </div>
 
                 <!-- Project 2 (Active) -->
-                <!-- <div class="project-card active-proj glass-panel rounded-3xl p-6 border border-violet-700/40 flex flex-col justify-between space-y-6 glass-panel-hover">
+                <!-- <div class="project-card active-proj glass-panel rounded-3xl p-6 border border-[#7A1F12]/40 flex flex-col justify-between space-y-6 glass-panel-hover">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
                             <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-500/40 flex items-center space-x-1.5">
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                                 <span>Active Development</span>
                             </span>
-                            <span class="text-xs text-violet-400 font-medium">Domain: NLP & RAG</span>
+                            <span class="text-xs text-[#E8A52A] font-medium">Domain: NLP & RAG</span>
                         </div>
 
                         <h3 class="text-2xl font-extrabold text-white">CampusBot: IIIT RAG Agent</h3>
@@ -787,19 +785,19 @@
                         </p>
 
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">LangChain</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">ChromaDB</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">Llama 3</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">Streamlit</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">LangChain</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">ChromaDB</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">Llama 3</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">Streamlit</span>
                         </div>
                     </div>
 
-                    <div class="pt-4 border-t border-violet-800/60 flex items-center justify-between">
-                        <div class="text-xs text-violet-300">
-                            <span class="block text-[10px] text-violet-400 uppercase font-semibold">Project Lead</span>
+                    <div class="pt-4 border-t border-[#7A1F12]/60 flex items-center justify-between">
+                        <div class="text-xs text-[#F2E192]">
+                            <span class="block text-[10px] text-[#E8A52A] uppercase font-semibold">Project Lead</span>
                             <span class="font-bold text-white">Veer Jain</span>
                         </div>
-                        <button onclick="openSkillChecker('CampusBot RAG', ['Python', 'LangChain', 'Vector DBs', 'Git'])" class="px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold transition-all shadow-md flex items-center space-x-2">
+                        <button onclick="openSkillChecker('CampusBot RAG', ['Python', 'LangChain', 'Vector DBs', 'Git'])" class="px-4 py-2 rounded-xl bg-[#E36F24] hover:bg-[#E8A52A] text-white text-xs font-bold transition-all shadow-md flex items-center space-x-2">
                             <i class="fa-solid fa-code-pull-request"></i>
                             <span>Want to Contribute?</span>
                         </button>
@@ -807,14 +805,14 @@
                 </div> -->
 
                 <!-- Project 3 (Active) -->
-                <!-- <div class="project-card active-proj glass-panel rounded-3xl p-6 border border-violet-700/40 flex flex-col justify-between space-y-6 glass-panel-hover">
+                <!-- <div class="project-card active-proj glass-panel rounded-3xl p-6 border border-[#7A1F12]/40 flex flex-col justify-between space-y-6 glass-panel-hover">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
                             <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-500/40 flex items-center space-x-1.5">
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                                 <span>Active Development</span>
                             </span>
-                            <span class="text-xs text-violet-400 font-medium">Domain: Data Science</span>
+                            <span class="text-xs text-[#E8A52A] font-medium">Domain: Data Science</span>
                         </div>
 
                         <h3 class="text-2xl font-extrabold text-white">AlphaData: Analytics Engine</h3>
@@ -823,18 +821,18 @@
                         </p>
 
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">Python</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">Pandas</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">TensorFlow</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">Pandas</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">TensorFlow</span>
                         </div>
                     </div>
 
-                    <div class="pt-4 border-t border-violet-800/60 flex items-center justify-between">
-                        <div class="text-xs text-violet-300">
-                            <span class="block text-[10px] text-violet-400 uppercase font-semibold">Project Lead</span>
+                    <div class="pt-4 border-t border-[#7A1F12]/60 flex items-center justify-between">
+                        <div class="text-xs text-[#F2E192]">
+                            <span class="block text-[10px] text-[#E8A52A] uppercase font-semibold">Project Lead</span>
                             <span class="font-bold text-white">Aditya Rana</span>
                         </div>
-                        <button onclick="openSkillChecker('AlphaData Engine', ['Python', 'Pandas', 'TensorFlow', 'Time Series'])" class="px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold transition-all shadow-md flex items-center space-x-2">
+                        <button onclick="openSkillChecker('AlphaData Engine', ['Python', 'Pandas', 'TensorFlow', 'Time Series'])" class="px-4 py-2 rounded-xl bg-[#E36F24] hover:bg-[#E8A52A] text-white text-xs font-bold transition-all shadow-md flex items-center space-x-2">
                             <i class="fa-solid fa-code-pull-request"></i>
                             <span>Want to Contribute?</span>
                         </button>
@@ -842,14 +840,14 @@
                 </div> -->
 
                 <!-- Project 4 (Completed) -->
-                <div class="project-card completed-proj hidden glass-panel rounded-3xl p-6 border border-violet-700/40 flex flex-col justify-between space-y-6 opacity-90">
+                <div class="project-card completed-proj hidden glass-panel rounded-3xl p-6 border border-[#7A1F12]/40 flex flex-col justify-between space-y-6 opacity-90">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
                             <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-cyan-950 text-cyan-300 border border-cyan-500/40 flex items-center space-x-1.5">
                                 <i class="fa-solid fa-check-circle"></i>
                                 <span>Completed & Open Source</span>
                             </span>
-                            <span class="text-xs text-violet-400 font-medium">Domain: Edge ML</span>
+                            <span class="text-xs text-[#E8A52A] font-medium">Domain: Edge ML</span>
                         </div>
 
                         <h3 class="text-2xl font-extrabold text-white">Demo Project</h3>
@@ -858,15 +856,15 @@
                         </p>
 
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">YOLOv8</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">OpenCV</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">Flask</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">YOLOv8</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">OpenCV</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">Flask</span>
                         </div>
                     </div>
 
-                    <div class="pt-4 border-t border-violet-800/60 flex items-center justify-between">
-                        <span class="text-xs text-violet-300 font-semibold"><i class="fa-brands fa-github text-violet-400 mr-1.5"></i>Public GitHub Repository</span>
-                        <a href="https://github.com" target="_blank" class="px-4 py-2 rounded-xl bg-violet-900 hover:bg-violet-800 border border-violet-700 text-white text-xs font-bold transition-all">
+                    <div class="pt-4 border-t border-[#7A1F12]/60 flex items-center justify-between">
+                        <span class="text-xs text-[#F2E192] font-semibold"><i class="fa-brands fa-github text-[#E8A52A] mr-1.5"></i>Public GitHub Repository</span>
+                        <a href="https://github.com" target="_blank" class="px-4 py-2 rounded-xl bg-[#100B07] hover:bg-[#4A160E] border border-[#7A1F12] text-white text-xs font-bold transition-all">
                             View Code
                         </a>
                     </div>
@@ -884,48 +882,50 @@
             <div class="flex flex-col  items-start sm:items-center justify-between gap-10">
                 <div>
                     <h2 class="text-3xl font-extrabold text-white">Latest Blogs and News</h2>
-                    <p class="text-violet-300 text-sm">Explore ongoing research models and open-source GitHub builds.</p>
+                    <p class="text-[#F2E192] text-sm">Explore ongoing research models and open-source GitHub builds.</p>
                 </div>
 
 
             <!-- Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-1 gap-80">
                 
-                <div class="project-card active-proj glass-panel rounded-3xl p-6 border border-violet-700/40 flex flex-col justify-between space-y-6 glass-panel-hover">
+                <div class="project-card active-proj glass-panel rounded-3xl p-6 border border-[#7A1F12]/40 flex flex-col justify-between space-y-6 glass-panel-hover">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-500/40 flex items-center space-x-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                                <span>Latest News (3/10/2026) </span>
+                            <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-red-950 text-white-300  flex items-center space-x-1.5">
+                                <span>Latest </span>
                             </span>
-                            <span class="text-xs text-violet-400 font-medium">Domain: Computer Vision</span>
+                            <span class="text-xs text-[#E8A52A] font-medium">Domain: API</span>
                         </div>
 
-                        <h3 class="text-2xl font-extrabold text-white">DEMO NEWS ARTICLE</h3>
+                        <h3 class="text-2xl font-extrabold text-white">Introducing Muse Spark 1.1</h3>
                         <p class="text-xs text-slate-300 leading-relaxed">
-                            Deep learning convolutional model designed to detect early-stage retinal pathologies from MRI and scan datasets using PyTorch and TorchVision.
+                            Deep learning convolutional model designed to detect early-stage retinal 
+                            pathologies from MRI and scan datasets using PyTorch and TorchVision.Today, 
+                            we’re excited to introduce Muse Spark 1.1, the latest model from Meta 
+                            Superintelligence Labs and a significant upgrade from Muse Spark. 
+                            Muse Spark 1.1 is a multimodal reasoning model built for agentic tasks, 
+                            with major gains in tool and computer use, coding, and multimodal understanding
                         </p>
 
                         <!-- Tech Stack Tags -->
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">Python</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">PyTorch</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">OpenCV</span>
-                            <span class="px-2.5 py-1 rounded-md bg-violet-900/70 border border-violet-700/50 text-[11px] font-semibold text-violet-200">FastAPI</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">PyTorch</span>
+                            <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">TorchVision</span>
+                            <!-- <span class="px-2.5 py-1 rounded-md bg-[#100B07]/70 border border-[#7A1F12]/50 text-[11px] font-semibold text-[#F2E192]">FastAPI</span> -->
                         </div>
                     </div>
 
-                    <div class="pt-4 border-t border-violet-800/60 flex items-center justify-between">
-                        <div class="text-xs text-violet-300">
-                            <span class="block text-[10px] text-violet-400 uppercase font-semibold">Source</span>
-                            <span class="font-bold text-white">Oxford University</span>
+                    <div class="pt-4 border-t border-[#7A1F12]/60 flex items-center justify-between">
+                        <div class="text-xs text-[#F2E192]">
+                            <span class="block text-[10px] text-[#E8A52A] uppercase font-semibold">Source</span>
+                            <span class="font-bold text-white">Meta</span>
                         </div>
-                    <form action="" method="">
-                        <button  class="px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold transition-all shadow-md flex items-center space-x-2">
-
-                            <span>Know More</span>
+                        <a href = "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/">
+                        <button  class="px-4 py-2 rounded-xl bg-[#E36F24] hover:bg-[#E8A52A] text-white text-xs font-bold transition-all shadow-md flex items-center space-x-2">
+                        <span>Know More</span></a>
                         </button>
-                    </form>
                     </div>
                 </div>
         </section>
@@ -935,67 +935,67 @@
         <section id="tab-recruitment" class="tab-content hidden space-y-10">
             
             <div class="text-center max-w-2xl mx-auto space-y-3">
-                <span class="px-3 py-1 rounded-full bg-violet-800/50 border border-violet-500/30 text-violet-200 text-xs font-semibold">Join IIIT Bhopal's Official AI-ML Club</span>
+                <span class="px-3 py-1 rounded-full bg-[#4A160E]/50 border border-[#E36F24]/30 text-[#F2E192] text-xs font-semibold">Join IIIT Bhopal's Official AI-ML Club</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Student Joining Form</h2>
-                <p class="text-violet-300 text-sm sm:text-base">Ready to learn, build, research, innovate, and contribute? Submit your application below to join our ecosystem.</p>
+                <p class="text-[#F2E192] text-sm sm:text-base">Ready to learn, build, research, innovate, and contribute? Submit your application below to join our ecosystem.</p>
             </div>
 
             <!-- Recruitment Form Card -->
-            <div class="max-w-3xl mx-auto glass-panel rounded-3xl p-6 sm:p-10 border border-violet-600/40 shadow-2xl relative overflow-hidden">
-                <div class="absolute -top-10 -right-10 w-40 h-40 bg-violet-500/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="max-w-3xl mx-auto glass-panel rounded-3xl p-6 sm:p-10 border border-[#E36F24]/40 shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#E8A52A]/10 rounded-full blur-2xl pointer-events-none"></div>
 
                 <form action="register" method="POST" id="recruitment-form" class="space-y-6">
                     {% csrf_token %}
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <!-- Full Name -->
                         <div class="space-y-2">
-                            <label class="block text-xs font-semibold uppercase text-violet-300 tracking-wider">Full Name *</label>
-                            <input type="text" name = "name" required placeholder="e.g. Aditya Rana" class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                            <label class="block text-xs font-semibold uppercase text-[#F2E192] tracking-wider">Full Name *</label>
+                            <input type="text" name = "name" required placeholder="e.g. Aditya Rana" class="w-full px-4 py-3 rounded-xl bg-[#050403]/80 border border-[#7A1F12]/60 text-white focus:outline-none focus:border-[#7A1F12] text-sm">
                         </div>
 
                         <!-- Roll Number -->
                         <div class="space-y-2">
-                            <label class="block text-xs font-semibold uppercase text-violet-300 tracking-wider">Scholar No. *</label>
-                            <input type="text" name = "roll" required placeholder="e.g. 25U023000" class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                            <label class="block text-xs font-semibold uppercase text-[#F2E192] tracking-wider">Scholar No. *</label>
+                            <input type="text" name = "roll" required placeholder="e.g. 25U023000" class="w-full px-4 py-3 rounded-xl bg-[#050403]/80 border border-[#7A1F12]/60 text-white focus:outline-none focus:border-[#7A1F12] text-sm">
                         </div>
 
                         <div class="space-y-2">
-                            <label class="block text-xs font-semibold uppercase text-violet-300 tracking-wider">Phone No. *</label>
-                            <input type="text" name = "phone" required placeholder="e.g. 1234567890" class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                            <label class="block text-xs font-semibold uppercase text-[#F2E192] tracking-wider">Phone No. *</label>
+                            <input type="text" name = "phone" required placeholder="e.g. 1234567890" class="w-full px-4 py-3 rounded-xl bg-[#050403]/80 border border-[#7A1F12]/60 text-white focus:outline-none focus:border-[#7A1F12] text-sm">
                         </div>
 
                         <!-- Academic Year -->
                         <div class="space-y-2">
-                            <label class="block text-xs font-semibold uppercase text-violet-300 tracking-wider">Semester *</label>
-                            <!-- <select required class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                            <label class="block text-xs font-semibold uppercase text-[#F2E192] tracking-wider">Semester *</label>
+                            <!-- <select required class="w-full px-4 py-3 rounded-xl bg-[#050403]/80 border border-[#7A1F12]/60 text-white focus:outline-none focus:border-[#7A1F12] text-sm">
                                 <option value="">Select Year</option>
                                 <option value="1">1st Year (B.Tech)</option>
                                 <option value="2">2nd Year (B.Tech)</option>
                                 <option value="3">3rd Year (B.Tech)</option>
                                 <option value="4">4th Year (B.Tech)</option>
                             </select> -->
-                            <input type="text" name = "year" required placeholder="1" class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                            <input type="text" name = "year" required placeholder="1" class="w-full px-4 py-3 rounded-xl bg-[#050403]/80 border border-[#7A1F12]/60 text-white focus:outline-none focus:border-[#7A1F12] text-sm">
 
                         </div>
 
                         <!-- Department Branch -->
                         <div class="space-y-2">
-                            <label class="block text-xs font-semibold uppercase text-violet-300 tracking-wider">Branch *</label>
-                            <!-- <select required class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                            <label class="block text-xs font-semibold uppercase text-[#F2E192] tracking-wider">Branch *</label>
+                            <!-- <select required class="w-full px-4 py-3 rounded-xl bg-[#050403]/80 border border-[#7A1F12]/60 text-white focus:outline-none focus:border-[#7A1F12] text-sm">
                                 <option value="">Select Branch</option>
                                 <option value="CSE">Computer Science & Eng. (CSE)</option>
                                 <option value="IT">Information Technology (IT)</option>
                                 <option value="ECE">Electronics & Comm. (ECE)</option>
                             </select> -->
-                            <input type="text" name = "branch" required placeholder="CSE(CS)" class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                            <input type="text" name = "branch" required placeholder="CSE(CS)" class="w-full px-4 py-3 rounded-xl bg-[#050403]/80 border border-[#7A1F12]/60 text-white focus:outline-none focus:border-[#7A1F12] text-sm">
 
                         </div>
                     </div>
 
                     <!-- Primary Domain Interest -->
                     <div class="space-y-2">
-                        <label class="block text-xs font-semibold uppercase text-violet-300 tracking-wider">Core Interest Track *</label>
-                        <!-- <select required class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                        <label class="block text-xs font-semibold uppercase text-[#F2E192] tracking-wider">Core Interest Track *</label>
+                        <!-- <select required class="w-full px-4 py-3 rounded-xl bg-[#050403]/80 border border-[#7A1F12]/60 text-white focus:outline-none focus:border-[#7A1F12] text-sm">
                             <option value="">Select Target Track</option>
                             <option value="ml">🤖 Artificial Intelligence & Machine Learning</option>
                             <option value="ds">📊 Data Science & Analytics</option>
@@ -1003,65 +1003,65 @@
                             <option value="research">🔬 Research & Academic Papers</option>
                             <option value="opensource">🌐 Open Source & Portfolio Building</option>
                         </select> -->
-                            <input type="text" name = "interest" required placeholder="AI" class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                            <input type="text" name = "interest" required placeholder="AI" class="w-full px-4 py-3 rounded-xl bg-[#050403]/80 border border-[#7A1F12]/60 text-white focus:outline-none focus:border-[#7A1F12] text-sm">
 
                     </div>
 
                     <!-- Profile Links -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="space-y-2">
-                            <label class="block text-xs font-semibold uppercase text-violet-300 tracking-wider">GitHub Profile URL</label>
-                            <input type="url" name="github" placeholder="https://github.com/username" class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                            <label class="block text-xs font-semibold uppercase text-[#F2E192] tracking-wider">GitHub Profile URL</label>
+                            <input type="url" name="github" placeholder="https://github.com/username" class="w-full px-4 py-3 rounded-xl bg-[#050403]/80 border border-[#7A1F12]/60 text-white focus:outline-none focus:border-[#7A1F12] text-sm">
                         </div>
 
                         <div class="space-y-2">
-                            <label class="block text-xs font-semibold uppercase text-violet-300 tracking-wider">LinkedIn / Portfolio URL</label>
-                            <input type="url" name = "portfolio" placeholder="https://linkedin.com/in/username" class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                            <label class="block text-xs font-semibold uppercase text-[#F2E192] tracking-wider">LinkedIn / Portfolio URL</label>
+                            <input type="url" name = "portfolio" placeholder="https://linkedin.com/in/username" class="w-full px-4 py-3 rounded-xl bg-[#050403]/80 border border-[#7A1F12]/60 text-white focus:outline-none focus:border-[#7A1F12] text-sm">
                         </div>
                     </div>
 
                     <!-- Statement of Purpose -->
                     <div class="space-y-2">
-                        <label class="block text-xs font-semibold uppercase text-violet-300 tracking-wider">Why do you want to join the AI–ML Club? *</label>
-                        <input type="text" name = "joining_details" placeholder="" class="w-full px-4 py-3 rounded-xl bg-violet-950/80 border border-violet-700/60 text-white focus:outline-none focus:border-violet-400 text-sm">
+                        <label class="block text-xs font-semibold uppercase text-[#F2E192] tracking-wider">Why do you want to join the AI–ML Club? *</label>
+                        <input type="text" name = "joining_details" placeholder="" class="w-full px-4 py-3 rounded-xl bg-[#050403]/80 border border-[#7A1F12]/60 text-white focus:outline-none focus:border-[#7A1F12] text-sm">
                     </div>
 
                     <!-- Submit Button -->
-                    <input type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 font-bold text-white shadow-lg shadow-violet-600/30 transition-all text-sm tracking-wider uppercase">
+                    <input type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-[#B83A16] to-[#7A1F12] hover:from-[#E36F24] hover:to-[#E8A52A] font-bold text-white shadow-lg shadow-[#E36F24]/30 transition-all text-sm tracking-wider uppercase">
                 </form>
             </div>
         </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="border-t border-violet-800/50 bg-violet-950 py-8 text-center text-xs text-violet-400">
+    <footer class="border-t border-[#7A1F12]/50 bg-[#050403] py-8 text-center text-xs text-[#E8A52A]">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
                 © 2026 <strong>AI–ML Club - IIIT Bhopal</strong>
             </div>
-            <div class="flex space-x-4">
+            <!-- <div class="flex space-x-4">
                 <a href="#" class="hover:text-white transition-colors">IIIT Bhopal Official</a>
                 <a href="#" class="hover:text-white transition-colors">Club GitHub</a>
                 <a href="#" class="hover:text-white transition-colors">Community Discord</a>
-            </div>
+            </div> -->
         </div>
     </footer>
 
     <!-- ==================== MODAL 1: ROADMAP NODE DETAILS ==================== -->
     <div id="node-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-        <div class="glass-panel max-w-xl w-full rounded-3xl border border-violet-600/40 p-6 sm:p-8 space-y-6 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeNodeModal()" class="absolute top-5 right-5 text-violet-400 hover:text-white text-xl">
+        <div class="glass-panel max-w-xl w-full rounded-3xl border border-[#E36F24]/40 p-6 sm:p-8 space-y-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeNodeModal()" class="absolute top-5 right-5 text-[#E8A52A] hover:text-white text-xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <div class="space-y-2">
-                <span id="modal-level-badge" class="px-3 py-1 rounded-full bg-violet-800 text-violet-200 text-xs font-bold">LEVEL 1 NODE</span>
+                <span id="modal-level-badge" class="px-3 py-1 rounded-full bg-[#4A160E] text-[#F2E192] text-xs font-bold">LEVEL 1 NODE</span>
                 <h3 id="modal-node-title" class="text-2xl font-extrabold text-white">Node Details</h3>
-                <p id="modal-node-desc" class="text-xs text-violet-300">Master fundamental concepts before proceeding to advanced model building.</p>
+                <p id="modal-node-desc" class="text-xs text-[#F2E192]">Master fundamental concepts before proceeding to advanced model building.</p>
             </div>
 
             <!-- Sub-topics Checklist -->
-            <div class="space-y-3 bg-violet-950/80 p-4 rounded-2xl border border-violet-800/60">
+            <div class="space-y-3 bg-[#050403]/80 p-4 rounded-2xl border border-[#7A1F12]/60">
                 <h4 class="text-xs font-bold text-white uppercase tracking-wider">Sub-topics Curriculum</h4>
                 <div id="modal-subtopics" class="space-y-2 text-xs">
                     <!-- Populated dynamically via JavaScript -->
@@ -1072,33 +1072,33 @@
             <div class="space-y-3">
                 <h4 class="text-xs font-bold text-white uppercase tracking-wider">Handpicked Resources</h4>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <a id="modal-yt-link" href="#" target="_blank" class="p-3 rounded-xl bg-violet-900/60 hover:bg-violet-800 border border-violet-700/50 flex items-center space-x-3 transition-colors">
+                    <a id="modal-yt-link" href="#" target="_blank" class="p-3 rounded-xl bg-[#100B07]/60 hover:bg-[#4A160E] border border-[#7A1F12]/50 flex items-center space-x-3 transition-colors">
                         <i class="fa-brands fa-youtube text-red-500 text-2xl"></i>
                         <div>
                             <span class="block text-xs font-bold text-white">YouTube Guide</span>
-                            <span class="text-[10px] text-violet-300">Video Walkthrough</span>
+                            <span class="text-[10px] text-[#F2E192]">Video Walkthrough</span>
                         </div>
                     </a>
 
-                    <a id="modal-gh-link" href="#" target="_blank" class="p-3 rounded-xl bg-violet-900/60 hover:bg-violet-800 border border-violet-700/50 flex items-center space-x-3 transition-colors">
+                    <a id="modal-gh-link" href="#" target="_blank" class="p-3 rounded-xl bg-[#100B07]/60 hover:bg-[#4A160E] border border-[#7A1F12]/50 flex items-center space-x-3 transition-colors">
                         <i class="fa-brands fa-python text-white text-2xl"></i>
                         <div>
                             <span class="block text-xs font-bold text-white">Official Documentation</span>
-                            <!-- <span class="text-[10px] text-violet-300">Code Examples</span> -->
+                            <!-- <span class="text-[10px] text-[#F2E192]">Code Examples</span> -->
                         </div>
                     </a>
-                    <a id="modal-intuition-link" href="#" target="_blank" class="p-3 rounded-xl bg-violet-900/60 hover:bg-violet-800 border border-violet-700/50 flex items-center space-x-3 transition-colors">
+                    <a id="modal-intuition-link" href="#" target="_blank" class="p-3 rounded-xl bg-[#100B07]/60 hover:bg-[#4A160E] border border-[#7A1F12]/50 flex items-center space-x-3 transition-colors">
                         <i class="fa-brands fa-readme text-white text-2xl"></i>
                         <div>
                             <span class="block text-xs font-bold text-white">Intuition Notes</span>
-                            <!-- <span class="text-[10px] text-violet-300">Code Examples</span> -->
+                            <!-- <span class="text-[10px] text-[#F2E192]">Code Examples</span> -->
                         </div>
                     </a>
                 </div>
             </div>
 
             <!-- Action Button -->
-            <button id="modal-action-btn" onclick="completeNodeAction()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 font-bold text-white shadow-lg shadow-emerald-600/30 hover:brightness-110 transition-all text-xs tracking-wider uppercase">
+            <button id="modal-action-btn" onclick="completeNodeAction()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-red-500 to-orange-600 font-bold text-white shadow-lg shadow-yellow-600/30 hover:brightness-110 transition-all text-xs tracking-wider uppercase">
                 Explore More
             </button>
         </div>
@@ -1106,15 +1106,15 @@
 
     <!-- ==================== MODAL 2: PROJECT SKILL CHECKER ==================== -->
     <div id="skill-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-        <div class="glass-panel max-w-md w-full rounded-3xl border border-violet-600/40 p-6 sm:p-8 space-y-6 relative">
-            <button onclick="closeSkillModal()" class="absolute top-5 right-5 text-violet-400 hover:text-white text-xl">
+        <div class="glass-panel max-w-md w-full rounded-3xl border border-[#E36F24]/40 p-6 sm:p-8 space-y-6 relative">
+            <button onclick="closeSkillModal()" class="absolute top-5 right-5 text-[#E8A52A] hover:text-white text-xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <div class="space-y-2">
-                <span class="px-3 py-1 rounded-full bg-violet-800 text-violet-200 text-[10px] font-bold uppercase">Contribution Prerequisites</span>
+                <span class="px-3 py-1 rounded-full bg-[#4A160E] text-[#F2E192] text-[10px] font-bold uppercase">Contribution Prerequisites</span>
                 <h3 id="skill-project-name" class="text-xl font-extrabold text-white">Project Skill Checker</h3>
-                <p class="text-xs text-violet-300">Select the tools you are proficient in to qualify for project contribution.</p>
+                <p class="text-xs text-[#F2E192]">Select the tools you are proficient in to qualify for project contribution.</p>
             </div>
 
             <div id="skill-checkbox-container" class="space-y-2.5">
@@ -1122,16 +1122,16 @@
             </div>
 
             <div class="space-y-1">
-                <div class="flex justify-between text-xs text-violet-300 font-bold">
+                <div class="flex justify-between text-xs text-[#F2E192] font-bold">
                     <span>Skill Match Score</span>
                     <span id="skill-match-percent">0%</span>
                 </div>
-                <div class="w-full bg-violet-950 h-2 rounded-full overflow-hidden border border-violet-800">
+                <div class="w-full bg-[#050403] h-2 rounded-full overflow-hidden border border-[#7A1F12]">
                     <div id="skill-progress-bar" class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full w-0 transition-all duration-300"></div>
                 </div>
             </div>
 
-            <button id="skill-submit-btn" onclick="evaluateSkillMatch()" class="w-full py-3.5 rounded-xl bg-violet-600 hover:bg-violet-500 font-bold text-white shadow-lg transition-all text-xs tracking-wider uppercase">
+            <button id="skill-submit-btn" onclick="evaluateSkillMatch()" class="w-full py-3.5 rounded-xl bg-[#E36F24] hover:bg-[#E8A52A] font-bold text-white shadow-lg transition-all text-xs tracking-wider uppercase">
                 Verify Contribution Eligibility
             </button>
         </div>
@@ -1139,13 +1139,13 @@
 
     <!-- ==================== MODAL 3: APPLICATION CONFIRMATION ==================== -->
     <div id="alert-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
-        <div class="glass-panel max-w-sm w-full rounded-3xl border border-violet-500/50 p-6 text-center space-y-4">
+        <div class="glass-panel max-w-sm w-full rounded-3xl border border-[#E36F24]/50 p-6 text-center space-y-4">
             <div class="w-16 h-16 rounded-full bg-emerald-950 border border-emerald-500 text-emerald-400 mx-auto flex items-center justify-center text-3xl">
                 <i class="fa-solid fa-circle-check"></i>
             </div>
             <h3 id="alert-title" class="text-xl font-bold text-white">Submitted Successfully!</h3>
-            <p id="alert-msg" class="text-xs text-violet-300 leading-relaxed">Your application has been received by the AI–ML Club founding team.</p>
-            <button onclick="closeAlertModal()" class="w-full py-3 rounded-xl bg-violet-600 hover:bg-violet-500 font-bold text-white text-xs uppercase tracking-wider">
+            <p id="alert-msg" class="text-xs text-[#F2E192] leading-relaxed">Your application has been received by the AI–ML Club founding team.</p>
+            <button onclick="closeAlertModal()" class="w-full py-3 rounded-xl bg-[#E36F24] hover:bg-[#E8A52A] font-bold text-white text-xs uppercase tracking-wider">
                 Continue Exploring
             </button>
         </div>
