@@ -86,8 +86,8 @@ const roadmapData = {
                     "Conditional Probability",  
                     "Bayes Theorem",  
                     "Basic Hypothesis Testing" ],
-        yt: "#",
-        gh: "#",
+        yt: "",
+        gh: "",
         completed: true
     },  
     7: {
