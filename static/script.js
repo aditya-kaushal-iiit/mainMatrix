@@ -71,7 +71,7 @@ const roadmapData = {
                     "Matrix Operations",  
                     "Dot Product",  
                     "Eigenvalues & Eigenvectors"],
-        yt:"#",
+        
         gh: "#",
         completed: false
     },
